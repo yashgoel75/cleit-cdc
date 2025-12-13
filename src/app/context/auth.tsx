@@ -7,9 +7,8 @@ import axios from "axios";
 
 interface AuthContextType {
   user: any;
-  setAdminData: any;
-  adminData: any;
-  schoolData: any;
+  setUserData: any;
+  userData: any;
   loading: boolean;
 }
 
@@ -19,7 +18,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
   const [user, setUser] = useState<any>(null);
-  const [adminData, setAdminData] = useState<any>(null);
+  const [userData, setUserData] = useState<any>(null);
   const [schoolData, setSchoolData] = useState<any>(null);
   const [loading, setLoading] = useState(true);
 
@@ -29,13 +28,13 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
       if (user?.uid) {
         const cachedAdmin = localStorage.getItem("adminData");
         if (cachedAdmin) {
-          setAdminData(JSON.parse(cachedAdmin));
+          setUserData(JSON.parse(cachedAdmin));
           setLoading(false);
         } else {
-          fetchUserDetails(user.uid)
+          fetchUserDetails(user.email || "")
             .then((data) => {
               console.log(data);
-              setAdminData(data);
+              setUserData(data);
               setSchoolData(data.school);
 
               // localStorage.setItem("adminData", JSON.stringify(data));
@@ -43,7 +42,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
             .finally(() => setLoading(false));
         }
       } else {
-        setAdminData(null);
+        setUserData(null);
         setLoading(false);
       }
     });
@@ -51,24 +50,24 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
     return () => unsubscribe();
   }, []);
 
-  useEffect(() => {
-    const cachedAdmin = localStorage.getItem("adminData");
-    if (cachedAdmin) setAdminData(JSON.parse(cachedAdmin));
-  }, []);
+  // useEffect(() => {
+  //   const cachedAdmin = localStorage.getItem("adminData");
+  //   if (cachedAdmin) setUserData(JSON.parse(cachedAdmin));
+  // }, []);
 
   // useEffect(() => {
   //   if (adminData) localStorage.setItem("adminData", JSON.stringify(adminData));
   // }, [adminData]);
 
-  const fetchUserDetails = async (uid: string) => {
+  const fetchUserDetails = async (email: string) => {
     try {
       const res = await axios.get(
-        `${process.env.NEXT_PUBLIC_BACKEND_BASE_URL}/api/admin?uid=${uid}`
+        `/api/user?email=${encodeURIComponent(email)}`
       );
       const data = res.data;
       console.log(data.data);
       console.log(data.data[0]);
-      setAdminData(data.data[0]);
+      setUserData(data.data[0]);
       setSchoolData(data.data[0].school);
       // localStorage.setItem("adminData", JSON.stringify(data));
 
@@ -81,7 +80,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
 
   return (
     <AuthContext.Provider
-      value={{ user, setAdminData, adminData, schoolData, loading }}
+      value={{ user, setUserData, userData, loading }}
     >
       {children}
     </AuthContext.Provider>

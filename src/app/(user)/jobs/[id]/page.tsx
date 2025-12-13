@@ -524,7 +524,7 @@ export default function JobDetails() {
         ) : (
           <div className="space-y-6">
             <div className="bg-white border border-gray-200 rounded-2xl shadow-sm overflow-hidden">
-              <div className="bg-gradient-to-r from-indigo-500 to-indigo-500 p-8 text-white">
+              <div className="bg-gradient-to-r from-indigo-500 to-purple-600 p-8 text-white">
                 <div className="flex items-start justify-between mb-6">
                   <div className="flex-1">
                     <div className="flex items-center gap-3 mb-3">

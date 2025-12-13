@@ -66,7 +66,7 @@ export default function AdminLayout({
     { icon: NotepadText, label: "Tests", route: "/tests" },
     { icon: Ticket, label: "Webinar", route: "/webinars" },
     { icon: UserIcon, label: "Account", route: "/account" },
-    { icon: Settings, label: "Settings", route: "/settings" },
+    // { icon: Settings, label: "Settings", route: "/settings" },
   ];
 
   const handleLogout = async () => {
@@ -154,7 +154,7 @@ export default function AdminLayout({
                         pathname === item.route
                           ? theme == "dark"
                             ? "bg-indigo-600 text-white"
-                            : "bg-indigo-500 text-white"
+                            : "bg-indigo-600 text-white"
                           : theme == "dark"
                           ? "text-gray-300 hover:bg-gray-700"
                           : "text-gray-700 hover:bg-gray-100"
@@ -197,7 +197,6 @@ export default function AdminLayout({
               }`}
             />
           </button>
-          
         </div>
         {children}
       </main>
