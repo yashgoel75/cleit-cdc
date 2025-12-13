@@ -315,6 +315,7 @@ export default function Register() {
                     )}
 
                     <button
+                      type="button"
                       onClick={handleNextToPasswordDetails}
                       className={`px-4 py-3 bg-indigo-500 text-white font-semibold hover:bg-indigo-600 rounded-lg transition-all duration-200 shadow-md hover:shadow-lg ${
                         checkingMail
@@ -446,6 +447,7 @@ export default function Register() {
                     )}
                     <div className="w-full gap-3 flex">
                       <button
+                        type="button"
                         onClick={handlePrevToBasicDetails}
                         className="w-full px-4 py-3 bg-indigo-500 text-white font-semibold hover:bg-indigo-600 cursor-pointer rounded-lg transition-all duration-200 shadow-md hover:shadow-lg"
                       >
