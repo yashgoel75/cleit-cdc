@@ -15,3 +15,7 @@ body {
 * {
   font-family: "Inter", Arial, Helvetica, sans-serif;
 }
+
+.clip-trapezium {
+  clip-path: polygon(0 0, 95% 0, 78% 100%, 0% 100%);
+}
