@@ -1,63 +1,55 @@
 "use client";
+import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
+import { getAuth, signOut, onAuthStateChanged, User } from "firebase/auth";
+import { auth } from "@/lib/firebase";
+import logo from "@/assets/cleit.png";
+import Image from "next/image";
 
 import "./page.css";
-import { useState, useEffect } from "react";
-import { onAuthStateChanged, User } from "firebase/auth";
-import { auth } from "@/lib/firebase";
-import Header from "@/components/Header/page";
-import Footer from "@/components/Footer/page";
 
 export default function Home() {
-  const [isMobile, setIsMobile] = useState(true);
-  useEffect(() => {
-    if (window.innerWidth > 768) {
-      setIsMobile(false);
-    }
-  }, []);
-
+  const router = useRouter();
+  const [loading, setLoading] = useState(true);
   const [user, setUser] = useState<User | null>(null);
+  const [displayName, setDisplayName] = useState("");
+  const [isMobile, setIsMobile] = useState<Boolean | null>(null);
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       setUser(user);
+      if (user?.email) {
+        const timer = setTimeout(() => {
+          router.replace("/dashboard");
+        }, 1500);
+      } else {
+        const timer = setTimeout(() => {
+          router.replace("/auth/login");
+        }, 1500);
+      }
     });
     return () => unsubscribe();
   }, []);
 
+  useEffect(() => {
+    setIsMobile(window.innerWidth <= 768);
+  })
+
   return (
-    <>
-      <Header/>
-      <main className="min-h-[85vh] flex justify-center items-center px-4 bg-gradient-to-br from-white via-gray-50 to-white onest-normal">
-        <div className="max-w-4xl text-center">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight text-gray-900">
-            Take the next step towards your career —
-            <br />
-            <span className="bg-indigo-100 px-2 rounded-md text-gray-900">
-              join placement drives, attempt online tests,
-            </span>
-            &nbsp; and&nbsp;
-            <span className="text-indigo-600 underline underline-offset-4 decoration-2">
-              unlock opportunities.
-            </span>
-          </h1>
+    <main className="main-container flex flex-col items-center justify-center min-h-screen max-h-screen p-4">
+      <span className="text-4xl dm-serif-display-regular-italic">
+        Welcome to
+      </span>
 
-          <p className="mt-6 text-gray-500 text-lg md:text-xl">
-            {isMobile
-              ? "Cleit is your one-stop platform for career development."
-              : "Cleit is your one-stop platform for career development — register for placement activities, practice aptitude tests, stay updated with upcoming recruitment events, and connect with hiring companies."}
-          </p>
+      <Image className="mt-2" src={logo} width={isMobile ? 200 : 350} alt="Cleit Logo"></Image>
 
-          <div className="mt-8">
-            <a
-              href={user ? "/account" : "/auth/login"}
-              className="inline-block bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 px-6 rounded-lg shadow-lg transition transform hover:scale-105"
-            >
-              Get Started
-            </a>
-          </div>
+      {loading && (
+        <div className="loader mt-8">
+          <div></div>
+          <div></div>
+          <div></div>
         </div>
-      </main>
-      <Footer/>
-    </>
+      )}
+    </main>
   );
 }

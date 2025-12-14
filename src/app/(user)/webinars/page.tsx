@@ -220,7 +220,7 @@ export default function StudentWebinars() {
 
   return (
     <>
-      <main className="min-h-screen p-4 md:p-8">
+      <main className="min-h-screen p-2 md:p-8">
         <div className="max-w-7xl mx-auto">
           <div className="mb-8">
             <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">

@@ -132,7 +132,7 @@ export default function TestDetails() {
 
   const DetailSkeleton = () => (
     <div className="animate-pulse space-y-6">
-      <div className="bg-white border border-gray-200 rounded-2xl p-8">
+      <div className="bg-white border border-gray-200 rounded-2xl p-4 md:p-8">
         <div className="h-8 bg-gray-200 rounded w-1/2 mb-4"></div>
         <div className="h-6 bg-gray-200 rounded w-1/3 mb-6"></div>
         <div className="flex gap-4">
@@ -163,7 +163,7 @@ export default function TestDetails() {
             <DetailSkeleton />
           ) : error ? (
             <div className="text-center py-16">
-              <div className="bg-white border border-red-200 rounded-2xl p-8 max-w-md mx-auto shadow-lg">
+              <div className="bg-white border border-red-200 rounded-2xl p-4 md:p-8 max-w-md mx-auto shadow-lg">
                 <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <AlertCircle className="w-8 h-8 text-red-600" />
                 </div>
@@ -202,12 +202,12 @@ export default function TestDetails() {
           ) : (
             <div className="space-y-6">
               <div className="bg-white border border-gray-200 rounded-2xl shadow-sm overflow-hidden">
-                <div className="bg-gradient-to-r from-indigo-500 to-purple-600 p-8 text-white">
+                <div className="bg-indigo-600 p-4 md:p-8 text-white">
                   <div className="flex items-start justify-between mb-6">
                     <div className="flex-1">
                       <div className="flex items-center gap-3 mb-3">
-                        <Trophy className="w-8 h-8" />
-                        <h1 className="text-3xl md:text-4xl font-bold">
+                        <Trophy className="w-5 h-5" />
+                        <h1 className="text-lg md:text-2xl font-bold leading-tight">
                           {test.title}
                         </h1>
                       </div>
@@ -221,7 +221,7 @@ export default function TestDetails() {
                       return (
                         deadlineStatus && (
                           <div
-                            className={`px-4 py-1 rounded-full text-sm font-semibold whitespace-nowrap ${
+                            className={`px-4 hidden md:block py-1 rounded-full text-sm font-semibold whitespace-nowrap ${
                               deadlineStatus.color === "red"
                                 ? "bg-red-700 text-white"
                                 : deadlineStatus.color === "orange"
@@ -280,10 +280,30 @@ export default function TestDetails() {
                           <span>{test.studentsApplied.length} applicants</span>
                         </div>
                       )}
-                  </div>
+                        </div>
+                        {(() => {
+                      const deadlineStatus = getDeadlineStatus(test.deadline);
+                      return (
+                        deadlineStatus && (
+                          <div
+                            className={`px-4 md:hidden mt-3 w-fit py-1 rounded-full text-sm font-semibold whitespace-nowrap ${
+                              deadlineStatus.color === "red"
+                                ? "bg-red-700 text-white"
+                                : deadlineStatus.color === "orange"
+                                ? "bg-orange-500 text-white"
+                                : deadlineStatus.color === "yellow"
+                                ? "bg-yellow-500 text-black"
+                                : "bg-green-500 text-white"
+                            }`}
+                          >
+                            {deadlineStatus.text}
+                          </div>
+                        )
+                      );
+                    })()}
                 </div>
 
-                <div className="p-8">
+                <div className="p-4 md:p-8">
                   {test.extraFields && test.extraFields.length > 0 && (
                     <div className="mb-8">
                       <h2 className="text-xl font-bold text-gray-800 mb-4 flex items-center gap-2">
@@ -327,7 +347,7 @@ export default function TestDetails() {
                     <h2 className="text-xl font-bold text-gray-800 mb-4">
                       Test Description
                     </h2>
-                    <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
+                    <div className="bg-gray-50 border h-70 overflow-auto border-gray-200 rounded-xl p-4 md:p-6">
                       <div
                         className="text-gray-700 leading-relaxed prose max-w-none"
                         dangerouslySetInnerHTML={{ __html: test.description }}
@@ -338,7 +358,7 @@ export default function TestDetails() {
                   {test.pdfUrl && (
                     <div className="mb-8">
                       <div className="bg-gradient-to-br from-orange-50 to-amber-50 border border-orange-200 rounded-xl p-6">
-                        <div className="flex items-center justify-between">
+                        <div className="flex-1 md:flex items-center justify-between">
                           <div className="flex items-center gap-4">
                             <div className="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center">
                               <FileText className="w-6 h-6 text-orange-600" />
@@ -356,7 +376,7 @@ export default function TestDetails() {
                             href={test.pdfUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 px-6 rounded-xl transition-colors shadow-md hover:shadow-lg"
+                            className="flex mt-4 md:mt-0 items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 px-6 rounded-xl transition-colors shadow-md hover:shadow-lg"
                           >
                             <Download className="w-4 h-4" />
                             Download PDF

@@ -524,26 +524,28 @@ export default function JobDetails() {
         ) : (
           <div className="space-y-6">
             <div className="bg-white border border-gray-200 rounded-2xl shadow-sm overflow-hidden">
-              <div className="bg-gradient-to-r from-indigo-500 to-purple-600 p-8 text-white">
+              <div className="bg-indigo-600 p-4 md:p-8 text-white">
                 <div className="flex items-start justify-between mb-6">
                   <div className="flex-1">
-                    <div className="flex items-center gap-3 mb-3">
-                      <Building2 className="w-8 h-8" />
-                      <h1 className="text-3xl md:text-4xl font-bold">
+                    <div className="flex items-center gap-2 mb-3">
+                      <Building2 className="w-5 h-5 shrink-0" />
+                      <h1 className="text-lg md:text-2xl font-bold leading-tight">
                         {job.company}
                       </h1>
                     </div>
+
                     <div className="flex items-center gap-2 text-indigo-100 text-lg">
-                      <Briefcase className="w-5 h-5" />
-                      <p className="font-semibold">{job.role}</p>
+                      <Briefcase className="w-5 h-5 shrink-0" />
+                      <p className="font-semibold leading-tight">{job.role}</p>
                     </div>
                   </div>
+
                   {(() => {
                     const deadlineStatus = getDeadlineStatus(job.deadline);
                     return (
                       deadlineStatus && (
                         <div
-                          className={`px-4 py-1 rounded-full text-sm font-semibold whitespace-nowrap ${
+                          className={`px-4 hidden md:block py-1 rounded-full text-sm font-semibold whitespace-nowrap ${
                             deadlineStatus.color === "red"
                               ? "bg-red-700 text-white"
                               : deadlineStatus.color === "orange"
@@ -585,9 +587,29 @@ export default function JobDetails() {
                     </div>
                   )}
                 </div>
+                {(() => {
+                  const deadlineStatus = getDeadlineStatus(job.deadline);
+                  return (
+                    deadlineStatus && (
+                      <div
+                        className={`px-4 w-fit mt-3 md:hidden py-1 rounded-full text-sm font-semibold whitespace-nowrap ${
+                          deadlineStatus.color === "red"
+                            ? "bg-red-700 text-white"
+                            : deadlineStatus.color === "orange"
+                            ? "bg-orange-500 text-white"
+                            : deadlineStatus.color === "yellow"
+                            ? "bg-yellow-500 text-black"
+                            : "bg-green-500 text-white"
+                        }`}
+                      >
+                        {deadlineStatus.text}
+                      </div>
+                    )
+                  );
+                })()}
               </div>
 
-              <div className="p-8">
+              <div className="p-4 md:p-8">
                 {job.postedAt && (
                   <div className="mb-6 flex items-center gap-2 text-gray-600">
                     <Clock className="w-4 h-4" />
@@ -645,7 +667,7 @@ export default function JobDetails() {
                   <h2 className="text-xl font-bold text-gray-800 mb-4">
                     Job Description
                   </h2>
-                  <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
+                  <div className="bg-gray-50 border h-70 overflow-auto border-gray-200 rounded-xl p-4 md:p-6">
                     <div
                       className="text-gray-700 leading-relaxed prose max-w-none"
                       dangerouslySetInnerHTML={{ __html: job.description }}

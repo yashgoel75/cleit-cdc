@@ -4,12 +4,6 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import { useRouter, usePathname } from "next/navigation";
 import {
-  LayoutDashboard,
-  BarChart3,
-  Users,
-  GraduationCap,
-  Calendar,
-  Settings,
   LogOut,
   Menu,
   X,
@@ -22,12 +16,7 @@ import {
 import logo from "../../assets/cleit.png";
 import { getAuth, signOut } from "firebase/auth";
 import "../page.css";
-import {
-  onAuthStateChanged,
-  User,
-  signInWithEmailAndPassword,
-  sendPasswordResetEmail,
-} from "firebase/auth";
+import { onAuthStateChanged, User } from "firebase/auth";
 
 import { auth } from "../../lib/firebase";
 import { ThemeProvider, useTheme } from "../context/theme";
@@ -197,6 +186,13 @@ export default function AdminLayout({
               }`}
             />
           </button>
+          <span
+            className={`md:hidden custom-class text-3xl transition-colors ${
+              theme == "dark" ? "text-white" : "text-gray-900"
+            }`}
+          >
+            <Image src={logo} width={110} alt="Cleit Logo"></Image>
+          </span>
         </div>
         {children}
       </main>

@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://cleit.in
+
+# Sitemaps
+Sitemap: https://cleit.in/sitemap.xml

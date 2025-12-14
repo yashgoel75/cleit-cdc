@@ -89,8 +89,12 @@ const user = new Schema({
     resume: String,
     status: String,
     isProfileComplete: Boolean,
-    wishlist: [{ societyUsername: String }],
-    reminders: [{ societyUsername: String }],
+    jobs: [{
+        jobId: { type: mongoose.Schema.Types.ObjectId, ref: "Job" },
+        appliedAt: { type: Date, default: Date.now }
+    }],
+    tests: [{ testId: { type: mongoose.Schema.Types.ObjectId, ref: "Test" }, appliedAt: { type: Date, default: Date.now } }],
+    webinars: [{ webinarId: { type: mongoose.Schema.Types.ObjectId, ref: "Webinar" }, appliedAt: { type: Date, default: Date.now } }],
 });
 
 const Job = mongoose.models.Job || mongoose.model("Job", job);

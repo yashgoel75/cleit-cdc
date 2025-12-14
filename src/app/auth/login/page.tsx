@@ -349,10 +349,18 @@ export default function Login() {
 
                 <button
                   type="submit"
-                  disabled={loading}
-                  className="px-4 py-3 bg-indigo-500 text-white font-semibold hover:bg-indigo-600 disabled:bg-indigo-300 disabled:cursor-not-allowed cursor-pointer rounded-lg transition-all duration-200 shadow-md hover:shadow-lg"
+                  disabled={loading || success}
+                  className={`px-4 py-3 bg-indigo-500 text-white font-semibold hover:bg-indigo-600 disabled:bg-indigo-300 disabled:cursor-not-allowed rounded-lg transition-all duration-200 shadow-md hover:shadow-lg ${
+                    loading || success
+                      ? "cursor-not-allowed opacity-50"
+                      : "cursor-pointer"
+                  }`}
                 >
-                  {loading ? "Signing in..." : "Login"}
+                  {loading
+                    ? "Signing in..."
+                    : success
+                    ? "Redirecting... Please Wait"
+                    : "Login"}
                 </button>
               </form>
               {emailNotVerified && (

@@ -279,20 +279,26 @@ export default function Account() {
 
   return (
     <>
-      <main className={`min-h-screen p-4 md:p-8`}>
+      <main className={`min-h-screen p-2 md:p-8`}>
         <div className="max-w-7xl mx-auto">
-          <div className="mb-8">
-            <div className="flex justify-between mb-2">
-              <h1 className={`text-3xl font-bold transition-colors`}>
-                Account Settings
-              </h1>
+          <div className="mb-2 md:mb-8">
+            <div className="flex-col md:flex justify-between items-center mb-2">
+              <div>
+                <h1 className={`text-3xl font-bold transition-colors`}>
+                  Account Settings
+                </h1>
+
+                <p className={`mt-1 transition-colors text-gray-600`}>
+                  View and manage your profile information
+                </p>
+              </div>
               <button
                 onClick={() => {
                   setIsPreview(false);
                   setIsEdit(true);
                   setFormData(userData);
                 }}
-                className={`px-5 flex px-3 bg-indigo-100 hover:bg-indigo-50 text-sm items-center gap-1 py-1 rounded-md transition duration-300 hover:cursor-pointer ${
+                className={`px-5 mt-2 md:mt-0 flex py-2 bg-indigo-100 hover:bg-indigo-50 text-sm items-center gap-1 py-1 rounded-md transition duration-300 hover:cursor-pointer ${
                   isEdit ? " text-white " : " text-indigo-600 "
                 }`}
               >
@@ -300,9 +306,6 @@ export default function Account() {
                 <span className="font-semibold">Edit</span>
               </button>
             </div>
-            <p className={`mt-1 transition-colors text-gray-600`}>
-              View and manage your profile information
-            </p>
           </div>
         </div>
         <div className="flex justify-center items-center gap-4 pb-10 font-medium"></div>
@@ -344,7 +347,7 @@ export default function Account() {
             className={`rounded-3xl shadow-sm overflow-hidden mb-6 transition-colors bg-white border-2 border-gray-200`}
           >
             <div className="px-8 pb-8">
-              <div className="py-10">
+              <div className="py-8 md:py-10 overflow-hidden">
                 <h3 className="text-3xl font-bold text-gray-800">
                   {userData?.name}
                 </h3>
@@ -421,7 +424,7 @@ export default function Account() {
                         <p
                           className={`text-base font-semibold transition-colors text-gray-900`}
                         >
-                          {userData?.collegeEmail}
+                          {isMobile ? userData?.collegeEmail.slice(0,12).concat('...') : userData?.collegeEmail}
                         </p>
                       </div>
                     </div>
@@ -595,11 +598,15 @@ export default function Account() {
                   )}
                 </div>
 
-                <p
-                  className={`text-sm mt-5 font-medium uppercase transition-colors text-gray-500`}
-                >
-                  Social Details
-                </p>
+                {userData?.linkedin ||
+                  userData?.leetcode ||
+                  (userData?.github && (
+                    <p
+                      className={`text-sm mt-5 font-medium uppercase transition-colors text-gray-500`}
+                    >
+                      Social Details
+                    </p>
+                  ))}
 
                 <div className="mt-5 flex flex-col justify-start text-left space-y-3">
                   {userData?.linkedin && (

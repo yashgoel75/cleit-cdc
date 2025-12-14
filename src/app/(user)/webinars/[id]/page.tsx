@@ -171,7 +171,7 @@ export default function WebinarDetails() {
 
   const DetailSkeleton = () => (
     <div className="animate-pulse space-y-6">
-      <div className="bg-white border border-gray-200 rounded-2xl p-8">
+      <div className="bg-white border border-gray-200 rounded-2xl p-4 md:p-8">
         <div className="h-8 bg-gray-200 rounded w-1/2 mb-4"></div>
         <div className="h-6 bg-gray-200 rounded w-1/3 mb-6"></div>
         <div className="flex gap-4">
@@ -202,7 +202,7 @@ export default function WebinarDetails() {
             <DetailSkeleton />
           ) : error ? (
             <div className="text-center py-16">
-              <div className="bg-white border border-red-200 rounded-2xl p-8 max-w-md mx-auto shadow-lg">
+              <div className="bg-white border border-red-200 rounded-2xl p-4 md:p-8 max-w-md mx-auto shadow-lg">
                 <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <AlertCircle className="w-8 h-8 text-red-600" />
                 </div>
@@ -242,12 +242,12 @@ export default function WebinarDetails() {
           ) : (
             <div className="space-y-6">
               <div className="bg-white border border-gray-200 rounded-2xl shadow-sm overflow-hidden">
-                <div className="bg-gradient-to-r from-indigo-500 to-purple-600 p-8 text-white">
+                <div className="bg-indigo-600 p-4 md:p-8 text-white">
                   <div className="flex items-start justify-between mb-6">
                     <div className="flex-1">
                       <div className="flex items-center gap-3 mb-3">
-                        <Video className="w-8 h-8" />
-                        <h1 className="text-3xl md:text-4xl font-bold">
+                        <Video className="w-5 h-5" />
+                        <h1 className="text-lg md:text-2xl font-bold leading-tight">
                           {webinar.title}
                         </h1>
                       </div>
@@ -261,7 +261,7 @@ export default function WebinarDetails() {
                       return (
                         status && (
                           <div
-                            className={`px-4 py-1 rounded-full text-sm font-semibold whitespace-nowrap ${
+                            className={`px-4 hidden md:block py-1 rounded-full text-sm font-semibold whitespace-nowrap ${
                               status.color === "gray"
                                 ? "bg-gray-700 text-white"
                                 : status.color === "red"
@@ -310,10 +310,32 @@ export default function WebinarDetails() {
                           </span>
                         </div>
                       )}
-                  </div>
+                        </div>
+                        {(() => {
+                      const status = getWebinarStatus(webinar.date);
+                      return (
+                        status && (
+                          <div
+                            className={`px-4 md:hidden mt-3 w-fit py-1 rounded-full text-sm font-semibold whitespace-nowrap ${
+                              status.color === "gray"
+                                ? "bg-gray-700 text-white"
+                                : status.color === "red"
+                                ? "bg-red-700 text-white"
+                                : status.color === "orange"
+                                ? "bg-orange-500 text-white"
+                                : status.color === "yellow"
+                                ? "bg-yellow-500 text-black"
+                                : "bg-green-500 text-white"
+                            }`}
+                          >
+                            {status.text}
+                          </div>
+                        )
+                      );
+                    })()}
                 </div>
 
-                <div className="p-8">
+                <div className="p-4 md:p-8">
                   {webinar.description && (
                     <div className="mb-8">
                       <h2 className="text-xl font-bold text-gray-800 mb-4">
@@ -321,7 +343,7 @@ export default function WebinarDetails() {
                       </h2>
                       <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
                         <div
-                          className="text-gray-700 leading-relaxed prose max-w-none"
+                          className="text-gray-700 h-70 overflow-auto leading-relaxed prose max-w-none"
                           dangerouslySetInnerHTML={{
                             __html: webinar.description,
                           }}
