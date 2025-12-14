@@ -393,6 +393,7 @@ export default function Dashboard() {
             )}
           </div>
 
+          
           <div>
             <div className="flex items-center gap-3 mb-6">
               <div className="w-1 h-8 bg-gradient-to-b from-fuchsia-500 to-fuchsia-600 rounded-full"></div>
