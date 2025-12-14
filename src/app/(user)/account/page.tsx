@@ -282,7 +282,7 @@ export default function Account() {
       <main className={`min-h-screen p-2 md:p-8`}>
         <div className="max-w-7xl mx-auto">
           <div className="mb-2 md:mb-8">
-            <div className="flex-col md:flex justify-between items-center mb-2">
+            <div className="flex flex-col md:flex-row justify-between md:items-center mb-2">
               <div>
                 <h1 className={`text-3xl font-bold transition-colors`}>
                   Account Settings
@@ -298,7 +298,7 @@ export default function Account() {
                   setIsEdit(true);
                   setFormData(userData);
                 }}
-                className={`px-5 mt-2 md:mt-0 flex py-2 bg-indigo-100 hover:bg-indigo-50 text-sm items-center gap-1 py-1 rounded-md transition duration-300 hover:cursor-pointer ${
+                className={`px-5 mt-2 w-fit md:mt-0 flex py-2 bg-indigo-100 hover:bg-indigo-50 text-sm items-center gap-1 py-1 rounded-md transition duration-300 hover:cursor-pointer ${
                   isEdit ? " text-white " : " text-indigo-600 "
                 }`}
               >
@@ -424,7 +424,9 @@ export default function Account() {
                         <p
                           className={`text-base font-semibold transition-colors text-gray-900`}
                         >
-                          {isMobile ? userData?.collegeEmail.slice(0,12).concat('...') : userData?.collegeEmail}
+                          {isMobile
+                            ? userData?.collegeEmail.slice(0, 12).concat("...")
+                            : userData?.collegeEmail}
                         </p>
                       </div>
                     </div>
