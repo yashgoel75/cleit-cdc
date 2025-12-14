@@ -24,7 +24,6 @@ import {
 
 interface UserProfile {
   name: string;
-  username: string;
   enrollmentNumber: string;
   collegeEmail: string;
   phone: number;
@@ -140,11 +139,8 @@ export default function Account() {
 
   const handleUpdate = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (usernameExists) return;
     if (!currentUser?.email || !formData) return;
     if (falseEndYear) return;
-    if (falseUsernameFormat) return;
-    if (!formData.username) return;
     setIsUpdating(true);
     setError(null);
     try {
@@ -185,11 +181,6 @@ export default function Account() {
   }, [formData]);
 
   useEffect(() => {
-    const usernameRegex = /^[a-zA-Z0-9._]{3,20}$/;
-    setFalseUsernameFormat(
-      formData?.username ? !usernameRegex.test(formData?.username) : false
-    );
-
     setFalseEndYear(
       !!formData?.batchStart &&
         !!formData?.batchEnd &&
@@ -258,24 +249,6 @@ export default function Account() {
       setIsUploadingResume(false);
     }
   };
-
-  async function checkUsername() {
-    setUsernameChecking(true);
-    const token = await getFirebaseToken();
-    const res = await fetch(
-      `/api/register/user?username=${formData?.username}`,
-      {
-        headers: { Authorization: `Bearer ${token}` },
-      }
-    );
-    const data = await res.json();
-    setUsernameChecking(false);
-    if (data.usernameExists) {
-      setUsernameExists(true);
-    } else {
-      setUsernameAvailable(true);
-    }
-  }
 
   return (
     <>
