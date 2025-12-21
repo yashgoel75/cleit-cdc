@@ -349,7 +349,7 @@ export default function Account() {
                         <p
                           className={`text-base font-semibold transition-colors text-gray-900`}
                         >
-                          {userData?.enrollmentNumber || "09117711623"}
+                          {userData?.enrollmentNumber || "NA"}
                         </p>
                       </div>
                     </div>
@@ -373,7 +373,7 @@ export default function Account() {
                         <p
                           className={`text-base font-semibold transition-colors text-gray-900`}
                         >
-                          {userData?.department || "B.Tech AI&ML"}
+                          {userData?.department || "NA"}
                         </p>
                       </div>
                     </div>
@@ -423,7 +423,7 @@ export default function Account() {
                         <p
                           className={`text-base font-semibold transition-colors text-gray-900`}
                         >
-                          {userData?.phone || "8920866347"}
+                          {userData?.phone || "NA"}
                         </p>
                       </div>
                     </div>
@@ -454,7 +454,7 @@ export default function Account() {
                         <p
                           className={`text-base font-semibold transition-colors text-gray-900`}
                         >
-                          {userData?.tenthPercentage || "96%"}
+                          {userData?.tenthPercentage || "NA"}
                         </p>
                       </div>
                     </div>
@@ -478,7 +478,7 @@ export default function Account() {
                         <p
                           className={`text-base font-semibold transition-colors text-gray-900`}
                         >
-                          {userData?.twelfthPercentage || "90%"}
+                          {userData?.twelfthPercentage || "NA"}
                         </p>
                       </div>
                     </div>
@@ -502,7 +502,7 @@ export default function Account() {
                         <p
                           className={`text-base font-semibold transition-colors text-gray-900`}
                         >
-                          {userData?.collegeGPA || "8.88"}
+                          {userData?.collegeGPA || "NA"}
                         </p>
                       </div>
                     </div>
@@ -533,7 +533,7 @@ export default function Account() {
                         <p
                           className={`text-base font-semibold transition-colors text-gray-900`}
                         >
-                          {userData?.status || "Unplaced"}
+                          {userData?.status || "NA"}
                         </p>
                       </div>
                     </div>
@@ -573,15 +573,15 @@ export default function Account() {
                   )}
                 </div>
 
-                {userData?.linkedin ||
+                {(userData?.linkedin ||
                   userData?.leetcode ||
-                  (userData?.github && (
-                    <p
-                      className={`text-sm mt-5 font-medium uppercase transition-colors text-gray-500`}
-                    >
-                      Social Details
-                    </p>
-                  ))}
+                  userData?.github) && (
+                  <p
+                    className={`text-sm mt-5 font-medium uppercase transition-colors text-gray-500`}
+                  >
+                    Social Details
+                  </p>
+                )}
 
                 <div className="mt-5 flex flex-col justify-start text-left space-y-3">
                   {userData?.linkedin && (

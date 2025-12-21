@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import { useRouter, usePathname } from "next/navigation";
+import { useRouter, usePathname, useParams } from "next/navigation";
 import {
   LogOut,
   Menu,
@@ -20,6 +20,8 @@ import { onAuthStateChanged, User } from "firebase/auth";
 
 import { auth } from "../../lib/firebase";
 import { ThemeProvider, useTheme } from "../context/theme";
+import axios from "axios";
+import { getFirebaseToken } from "@/index";
 
 export default function AdminLayout({
   children,
@@ -27,15 +29,33 @@ export default function AdminLayout({
   children: React.ReactNode;
 }) {
   const router = useRouter();
+  const params = useParams();
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user: User | null) => {
       if (!user) {
         router.replace("/auth/login");
+        return;
       }
+      fetchUserDetails(user?.email || "");
     });
     return () => unsubscribe();
   }, [router]);
+
+  async function fetchUserDetails(email: String) {
+    const token = await getFirebaseToken();
+    try {
+      const res = await axios.get(`/api/user?email=${email}`, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      const data = res.data;
+      if (!data?.user?.isProfileComplete && pathname !== "/account") {
+        router.push("/account");
+      }
+    } catch (error) {
+      console.error("Error");
+    }
+  }
 
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
