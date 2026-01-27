@@ -19,7 +19,6 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
 }) => {
   const [user, setUser] = useState<any>(null);
   const [userData, setUserData] = useState<any>(null);
-  const [schoolData, setSchoolData] = useState<any>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -35,7 +34,6 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
             .then((data) => {
               console.log(data);
               setUserData(data);
-              setSchoolData(data.school);
 
               // localStorage.setItem("adminData", JSON.stringify(data));
             })
@@ -68,7 +66,6 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
       console.log(data.data);
       console.log(data.data[0]);
       setUserData(data.data[0]);
-      setSchoolData(data.data[0].school);
       // localStorage.setItem("adminData", JSON.stringify(data));
 
       return data.data[0];
