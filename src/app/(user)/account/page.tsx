@@ -552,9 +552,7 @@ export default function Account() {
                         "B.Tech IIOT",
                         "B.Tech EE (VLSI Design & Technology)",
                         "B.Tech CSE (Cyber Security)",
-                        "B.Tech CS(Applied Mathematics)",
-                        "B.Tech (LE)- Diploma Holders",
-                        "B.Tech (LE)- BSc Graduates",
+                        "B.Tech CS (Applied Mathematics)"
                       ].map((dept) => (
                         <option key={dept} value={dept}>{dept}</option>
                       ))}
