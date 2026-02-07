@@ -70,7 +70,7 @@ export default function Register() {
   const [isPasswordDetails, setIsPasswordDetails] = useState(false);
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>,
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -109,7 +109,7 @@ export default function Register() {
       await createUserWithEmailAndPassword(
         auth,
         formData.collegeEmail,
-        formData.password
+        formData.password,
       );
 
       await axios.post("/api/register/user", {
@@ -140,7 +140,7 @@ export default function Register() {
     setFalsePasswordFormat(password ? !passwordRegex.test(password) : false);
 
     setFalseConfirmPassword(
-      !!confirmPassword && !!password && confirmPassword !== password
+      !!confirmPassword && !!password && confirmPassword !== password,
     );
   }, [formData]);
 
@@ -153,7 +153,7 @@ export default function Register() {
     if (falseEmailFormat) return;
     setCheckingMail(true);
     const res = await axios.get(
-      `/api/register/user?email=${formData.collegeEmail}`
+      `/api/register/user?email=${formData.collegeEmail}`,
     );
     setCheckingMail(false);
     if (res.data.emailExists) {
@@ -374,6 +374,27 @@ export default function Register() {
                           &nbsp; Please enter a valid password format
                         </div>
                       ) : null}
+                    </div>
+                    <div className="mt-1 text-sm text-gray-500 leading-relaxed">
+                      Your password should be at least{" "}
+                      <span className="font-medium text-gray-700">
+                        8 characters
+                      </span>{" "}
+                      long, with a mix of{" "}
+                      <span className="font-medium text-gray-700">
+                        uppercase
+                      </span>
+                      ,&nbsp;
+                      <span className="font-medium text-gray-700">
+                        lowercase
+                      </span>
+                      ,&nbsp;
+                      <span className="font-medium text-gray-700">number</span>,
+                      and{" "}
+                      <span className="font-medium text-gray-700">
+                        one special character
+                      </span>
+                      .
                     </div>
 
                     <div className="flex flex-col space-y-2">
