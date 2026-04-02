@@ -72,6 +72,7 @@ export default function JobDetails() {
     Record<string, string | number | File>
   >({});
   const [formErrors, setFormErrors] = useState<Record<string, string>>({});
+  const [confirmApplied, setConfirmApplied] = useState(false);
 
   const fetchJob = async (jobId: string) => {
     try {
@@ -227,6 +228,7 @@ export default function JobDetails() {
       if (!res.ok) throw new Error("Failed to apply.");
 
       setApplied(true);
+      setConfirmApplied(false);
     } catch (err) {
       console.error(err);
       alert("There was a problem submitting your application.");
@@ -733,7 +735,7 @@ export default function JobDetails() {
                         <FileText className="w-5 h-5 text-indigo-600" />
                         Application Form
                       </h3>
-                      <div className="bg-white border border-gray-200 rounded-xl p-6">
+                      <div className="bg-white border border-gray-200 rounded-xl p-8 shadow-sm">
                         {job.inputFields.map((field) =>
                           renderInputField(field)
                         )}
@@ -741,77 +743,98 @@ export default function JobDetails() {
                     </div>
                   )}
 
-                <div className="flex flex-col sm:flex-row gap-4 mb-6">
-                  {job.linkToApply && (
-                    <>
-                      <button
-                        onClick={handleNotInterested}
-                        className={`flex-1 bg-gray-500 text-white px-6 py-3.5 rounded-xl font-semibold transition-all shadow-md hover:shadow-lg ${
-                          isStudentApplied ||
-                          applied ||
-                          getDeadlineStatus(job.deadline)?.status === "expired"
-                            ? "opacity-50 cursor-not-allowed"
-                            : "hover:bg-gray-600"
-                        }`}
-                        disabled={
-                          applying ||
-                          applied ||
-                          isStudentApplied ||
-                          getDeadlineStatus(job.deadline)?.status === "expired"
-                        }
-                      >
-                        Not Interested
-                      </button>
-                      <button
-                        onClick={handleApplyOnCompany}
-                        className={`flex-1 bg-green-500 text-white px-6 py-3.5 rounded-xl font-semibold transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-2 ${
-                          isStudentApplied ||
-                          applied ||
-                          getDeadlineStatus(job.deadline)?.status === "expired"
-                            ? "opacity-50 cursor-not-allowed"
-                            : "hover:bg-green-600"
-                        }`}
-                        disabled={
-                          applying ||
-                          applied ||
-                          isStudentApplied ||
-                          getDeadlineStatus(job.deadline)?.status === "expired"
-                        }
-                      >
-                        Apply on Company Website
-                        <ExternalLink className="w-4 h-4" />
-                      </button>
-                    </>
-                  )}
-                  <button
-                    onClick={handleApply}
-                    disabled={
-                      applying ||
-                      applied ||
-                      isStudentApplied ||
-                      getDeadlineStatus(job.deadline)?.status === "expired"
-                    }
-                    className={`flex-1 bg-indigo-600 text-white px-6 py-3.5 rounded-xl font-semibold transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-2 ${
-                      isStudentApplied ||
-                      applied ||
-                      getDeadlineStatus(job.deadline)?.status === "expired"
-                        ? "opacity-50 cursor-not-allowed"
-                        : "hover:bg-indigo-700"
-                    }`}
-                  >
-                    {isStudentApplied || applied ? (
-                      <>
-                        <CheckCircle className="w-5 h-5" />
-                        {applying ? "Submitting..." : "Application Submitted"}
-                      </>
-                    ) : getDeadlineStatus(job.deadline)?.status ===
-                      "expired" ? (
-                      "Expired"
-                    ) : (
-                      "Applied on Portal?"
+                <div className="bg-white border border-gray-100 rounded-xl p-6 shadow-sm">
+                  <div className="flex flex-col gap-4 mb-6">
+                    {job.linkToApply && (
+                      <div className="flex flex-col sm:flex-row gap-4 w-full">
+                        <button
+                          onClick={handleApplyOnCompany}
+                          className={`flex-1 bg-white text-indigo-600 border border-indigo-600 px-6 py-3.5 rounded-xl font-semibold transition-all shadow-sm hover:shadow-md flex items-center justify-center gap-2 ${
+                            isStudentApplied ||
+                            applied ||
+                            getDeadlineStatus(job.deadline)?.status === "expired"
+                              ? "opacity-50 cursor-not-allowed"
+                              : "hover:bg-indigo-50"
+                          }`}
+                          disabled={
+                            applying ||
+                            applied ||
+                            isStudentApplied ||
+                            getDeadlineStatus(job.deadline)?.status === "expired"
+                          }
+                        >
+                          Apply on Company Website
+                          <ExternalLink className="w-4 h-4" />
+                        </button>
+                        <button
+                          onClick={handleNotInterested}
+                          className={`flex-1 bg-white text-gray-600 border border-gray-300 px-6 py-3.5 rounded-xl font-semibold transition-all shadow-sm hover:shadow-md ${
+                            isStudentApplied ||
+                            applied ||
+                            getDeadlineStatus(job.deadline)?.status === "expired"
+                              ? "opacity-50 cursor-not-allowed"
+                              : "hover:bg-gray-50"
+                          }`}
+                          disabled={
+                            applying ||
+                            applied ||
+                            isStudentApplied ||
+                            getDeadlineStatus(job.deadline)?.status === "expired"
+                          }
+                        >
+                          Not Interested
+                        </button>
+                      </div>
                     )}
-                  </button>
+                    
+                    {!isStudentApplied && !applied && getDeadlineStatus(job.deadline)?.status !== "expired" && job.linkToApply && (
+                      <div className="mt-4 p-4 bg-gray-50 rounded-lg border border-gray-200 flex items-start gap-3">
+                        <input
+                          type="checkbox"
+                          id="confirmApplied"
+                          checked={confirmApplied}
+                          onChange={(e) => setConfirmApplied(e.target.checked)}
+                          className="mt-1 w-5 h-5 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500 cursor-pointer"
+                        />
+                        <label htmlFor="confirmApplied" className="text-gray-700 text-sm cursor-pointer select-none">
+                          I confirm that I have accessed the external link and applied on the company website.
+                        </label>
+                      </div>
+                    )}
+
+                    <button
+                      onClick={handleApply}
+                      disabled={
+                        applying ||
+                        applied ||
+                        isStudentApplied ||
+                        getDeadlineStatus(job.deadline)?.status === "expired" ||
+                        (job.linkToApply ? !confirmApplied : false)
+                      }
+                      className={`w-full bg-indigo-600 text-white px-6 py-4 rounded-xl font-semibold transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-2 ${
+                        isStudentApplied ||
+                        applied ||
+                        getDeadlineStatus(job.deadline)?.status === "expired" ||
+                        (job.linkToApply ? !confirmApplied : false)
+                          ? "opacity-50 cursor-not-allowed"
+                          : "hover:bg-indigo-700"
+                      }`}
+                    >
+                      {isStudentApplied || applied ? (
+                        <>
+                          <CheckCircle className="w-5 h-5" />
+                          {applying ? "Submitting..." : "Application Submitted"}
+                        </>
+                      ) : getDeadlineStatus(job.deadline)?.status ===
+                        "expired" ? (
+                        "Expired"
+                      ) : (
+                        "Submit Application"
+                      )}
+                    </button>
+                  </div>
                 </div>
+
               </div>
             </div>
           </div>

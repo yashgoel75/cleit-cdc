@@ -39,6 +39,7 @@ interface UserProfile {
   leetcode: string;
   status: string;
   resume: string;
+  profilePicture?: string;
   isProfileComplete?: boolean; 
 }
 
@@ -67,6 +68,8 @@ export default function Account() {
   const [error, setError] = useState<string | null>(null);
   const [resumeUrl, setResumeUrl] = useState<string | null>(null);
   const [isUploadingResume, setIsUploadingResume] = useState(false);
+  const [profilePicUrl, setProfilePicUrl] = useState<string | null>(null);
+  const [isUploadingProfilePic, setIsUploadingProfilePic] = useState(false);
   const [isProfileComplete, setIsProfileComplete] = useState(true);
 
   const router = useRouter();
@@ -291,6 +294,63 @@ export default function Account() {
     }
   };
 
+  const handleProfilePicChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    if (!file.type.startsWith("image/")) {
+      alert("Please upload an image file (JPG, PNG, etc).");
+      return;
+    }
+
+    setIsUploadingProfilePic(true);
+
+    try {
+      const token = await getFirebaseToken();
+      const sigRes = await fetch("/api/signresume", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({ folder: "resumes" }), // User requested to store in same folder
+      });
+      const { signature, timestamp, apiKey, folder } = await sigRes.json();
+
+      const uploadFormData = new FormData();
+      uploadFormData.append("file", file);
+      uploadFormData.append("api_key", apiKey);
+      uploadFormData.append("timestamp", timestamp);
+      uploadFormData.append("signature", signature);
+      uploadFormData.append("folder", folder);
+
+      const cloudinaryUploadUrl = `https://api.cloudinary.com/v1_1/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload`;
+
+      const response = await fetch(cloudinaryUploadUrl, {
+        method: "POST",
+        body: uploadFormData,
+      });
+
+      const data = await response.json();
+      if (!response.ok) {
+        throw new Error(data.error?.message || "Cloudinary upload failed");
+      }
+
+      setProfilePicUrl(data.secure_url);
+      setFormData((prev) =>
+        prev ? { ...prev, profilePicture: data.secure_url } : prev,
+      );
+    } catch (err) {
+      alert(
+        `Profile picture upload failed: ${
+          err instanceof Error ? err.message : "Unknown error"
+        }`,
+      );
+    } finally {
+      setIsUploadingProfilePic(false);
+    }
+  };
+
   return (
     <>
       <main className={`min-h-screen p-2 md:p-8`}>
@@ -354,9 +414,20 @@ export default function Account() {
           <div className={`rounded-3xl shadow-sm overflow-hidden mb-6 transition-colors bg-white border-2 border-gray-200`}>
             <div className="px-8 pb-8">
               <div className="py-8 md:py-10 overflow-hidden">
-                <h3 className="text-3xl font-bold text-gray-800">
-                  {userData?.name}
-                </h3>
+                <div className="flex items-center gap-6">
+                  {userData?.profilePicture ? (
+                    <img src={userData.profilePicture} alt="Profile" className="w-24 h-24 rounded-full object-cover border-4 border-indigo-100" />
+                  ) : (
+                    <div className="w-24 h-24 rounded-full bg-indigo-100 flex items-center justify-center border-4 border-indigo-50">
+                      <span className="text-3xl font-bold text-indigo-500">{userData?.name?.charAt(0).toUpperCase()}</span>
+                    </div>
+                  )}
+                  <div>
+                    <h3 className="text-3xl font-bold text-gray-800">
+                      {userData?.name}
+                    </h3>
+                  </div>
+                </div>
                 <p className={`text-sm mt-5 font-medium uppercase transition-colors text-gray-500`}>
                   Basic Details
                 </p>
@@ -505,19 +576,37 @@ export default function Account() {
                 <div className="mb-5">
                   <label className="block font-medium mb-1 text-gray-700">Resume <span className="text-red-500">*</span></label>
                   <div className="flex flex-col sm:flex-row items-center gap-4 mt-2">
-                    {resumeUrl && (
-                      <a href={resumeUrl} target="_blank" rel="noopener noreferrer" className="text-indigo-600 w-fit text-sm">
+                    {(resumeUrl || formData?.resume) && (
+                      <a href={resumeUrl || formData?.resume} target="_blank" rel="noopener noreferrer" className="text-indigo-600 w-fit text-sm">
                         View Uploaded Resume
                       </a>
                     )}
                     <input
                       type="file"
-                      accept="application/pdf"
+                      accept="application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
                       onChange={handleResumeChange}
                       className="my-2 sm:mt-0 w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100"
                     />
                   </div>
                   {isUploadingResume && <p className="text-gray-500 text-sm mt-2">Uploading...</p>}
+                </div>
+
+                <div className="mb-5">
+                  <label className="block font-medium mb-1 text-gray-700">Profile Picture</label>
+                  <div className="flex flex-col sm:flex-row items-center gap-4 mt-2">
+                    {(profilePicUrl || formData?.profilePicture) && (
+                      <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-indigo-100 shrink-0">
+                        <img src={profilePicUrl || formData?.profilePicture} alt="Profile preview" className="w-full h-full object-cover" />
+                      </div>
+                    )}
+                    <input
+                      type="file"
+                      accept="image/*"
+                      onChange={handleProfilePicChange}
+                      className="my-2 sm:mt-0 w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100"
+                    />
+                  </div>
+                  {isUploadingProfilePic && <p className="text-gray-500 text-sm mt-2">Uploading image...</p>}
                 </div>
 
                 <div className="space-y-6">

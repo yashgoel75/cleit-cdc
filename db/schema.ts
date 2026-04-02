@@ -87,6 +87,7 @@ const user = new Schema({
     github: String,
     leetcode: String,
     resume: String,
+    profilePicture: String,
     status: String,
     isProfileComplete: Boolean,
     jobs: [{
