@@ -90,6 +90,7 @@ const user = new Schema({
     profilePicture: String,
     status: String,
     isProfileComplete: Boolean,
+    dsaProgress: [{ type: String }],
     jobs: [{
         jobId: { type: mongoose.Schema.Types.ObjectId, ref: "Job" },
         appliedAt: { type: Date, default: Date.now }

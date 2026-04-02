@@ -1,0 +1,558 @@
+{
+  "sheetName": "Cleit DSA Sheet",
+  "description": "A curated list of 300 top data structures and algorithm questions covering all major patterns.",
+  "topics": [
+    {
+      "id": "arrays_hashing",
+      "name": "Arrays & Hashing",
+      "patterns": ["Frequency Count", "Prefix Sum", "Kadane's Algorithm", "Sorting-based", "Hash Map Lookup"],
+      "explanation": [
+        "Arrays represent a contiguous block of memory, allowing for O(1) time complexity when indexing elements. However, inserting or deleting elements in the middle of an array requires shifting elements, which takes O(N) time.",
+        "Hash tables (or Hash Maps) provide incredibly fast O(1) average time complexity for insertions, deletions, and lookups by mapping keys to indices via a hash function.",
+        "When combined, arrays and hash maps are frequently used to solve mapping, frequency analysis, and element lookup problems optimally. Always consider hash maps when you need to repeatedly check for the existence of an element."
+      ],
+      "problems": [
+        { "id": "contains-duplicate", "title": "Contains Duplicate", "difficulty": "Easy", "pattern": "Frequency Count", "link": "https://leetcode.com/problems/contains-duplicate/" },
+        { "id": "valid-anagram", "title": "Valid Anagram", "difficulty": "Easy", "pattern": "Frequency Count", "link": "https://leetcode.com/problems/valid-anagram/" },
+        { "id": "two-sum", "title": "Two Sum", "difficulty": "Easy", "pattern": "Hash Map Lookup", "link": "https://leetcode.com/problems/two-sum/" },
+        { "id": "group-anagrams", "title": "Group Anagrams", "difficulty": "Medium", "pattern": "Frequency Count", "link": "https://leetcode.com/problems/group-anagrams/" },
+        { "id": "top-k-frequent-elements", "title": "Top K Frequent Elements", "difficulty": "Medium", "pattern": "Frequency Count", "link": "https://leetcode.com/problems/top-k-frequent-elements/" },
+        { "id": "product-of-array-except-self", "title": "Product of Array Except Self", "difficulty": "Medium", "pattern": "Prefix Sum", "link": "https://leetcode.com/problems/product-of-array-except-self/" },
+        { "id": "valid-sudoku", "title": "Valid Sudoku", "difficulty": "Medium", "pattern": "Frequency Count", "link": "https://leetcode.com/problems/valid-sudoku/" },
+        { "id": "longest-consecutive-sequence", "title": "Longest Consecutive Sequence", "difficulty": "Medium", "pattern": "Hash Map Lookup", "link": "https://leetcode.com/problems/longest-consecutive-sequence/" },
+        { "id": "subarray-sum-equals-k", "title": "Subarray Sum Equals K", "difficulty": "Medium", "pattern": "Prefix Sum", "link": "https://leetcode.com/problems/subarray-sum-equals-k/" },
+        { "id": "maximum-subarray", "title": "Maximum Subarray", "difficulty": "Medium", "pattern": "Kadane's Algorithm", "link": "https://leetcode.com/problems/maximum-subarray/" },
+        { "id": "maximum-product-subarray", "title": "Maximum Product Subarray", "difficulty": "Medium", "pattern": "Kadane's Algorithm", "link": "https://leetcode.com/problems/maximum-product-subarray/" },
+        { "id": "range-sum-query-immutable", "title": "Range Sum Query - Immutable", "difficulty": "Easy", "pattern": "Prefix Sum", "link": "https://leetcode.com/problems/range-sum-query-immutable/" },
+        { "id": "find-pivot-index", "title": "Find Pivot Index", "difficulty": "Easy", "pattern": "Prefix Sum", "link": "https://leetcode.com/problems/find-pivot-index/" },
+        { "id": "sort-colors", "title": "Sort Colors", "difficulty": "Medium", "pattern": "Sorting-based", "link": "https://leetcode.com/problems/sort-colors/" },
+        { "id": "majority-element", "title": "Majority Element", "difficulty": "Easy", "pattern": "Frequency Count", "link": "https://leetcode.com/problems/majority-element/" },
+        { "id": "majority-element-ii", "title": "Majority Element II", "difficulty": "Medium", "pattern": "Frequency Count", "link": "https://leetcode.com/problems/majority-element-ii/" },
+        { "id": "number-of-zero-filled-subarrays", "title": "Number of Zero-Filled Subarrays", "difficulty": "Medium", "pattern": "Kadane's Algorithm", "link": "https://leetcode.com/problems/number-of-zero-filled-subarrays/" }
+      ]
+    },
+    {
+      "id": "two_pointers",
+      "name": "Two Pointers",
+      "patterns": ["Opposite Ends", "Fast & Slow Pointers", "Partition", "K-Sum"],
+      "explanation": [
+        "The Two Pointers technique typically involves using two indices to iterate through an array or list, often starting at opposite ends or moving at different speeds.",
+        "This dynamic allows you to process pairs of elements simultaneously, dramatically reducing nested loops and achieving O(N) time complexity.",
+        "This pattern is heavily reliant on ordered/sorted data, or structures where elements have an inherent relationship (e.g., palindromes)."
+      ],
+      "problems": [
+        { "id": "valid-palindrome", "title": "Valid Palindrome", "difficulty": "Easy", "pattern": "Opposite Ends", "link": "https://leetcode.com/problems/valid-palindrome/" },
+        { "id": "two-sum-ii", "title": "Two Sum II - Input Array Is Sorted", "difficulty": "Medium", "pattern": "Opposite Ends", "link": "https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/" },
+        { "id": "3sum", "title": "3Sum", "difficulty": "Medium", "pattern": "K-Sum", "link": "https://leetcode.com/problems/3sum/" },
+        { "id": "4sum", "title": "4Sum", "difficulty": "Medium", "pattern": "K-Sum", "link": "https://leetcode.com/problems/4sum/" },
+        { "id": "container-with-most-water", "title": "Container With Most Water", "difficulty": "Medium", "pattern": "Opposite Ends", "link": "https://leetcode.com/problems/container-with-most-water/" },
+        { "id": "trapping-rain-water", "title": "Trapping Rain Water", "difficulty": "Hard", "pattern": "Opposite Ends", "link": "https://leetcode.com/problems/trapping-rain-water/" },
+        { "id": "remove-duplicates-from-sorted-array", "title": "Remove Duplicates from Sorted Array", "difficulty": "Easy", "pattern": "Partition", "link": "https://leetcode.com/problems/remove-duplicates-from-sorted-array/" },
+        { "id": "remove-duplicates-from-sorted-array-ii", "title": "Remove Duplicates from Sorted Array II", "difficulty": "Medium", "pattern": "Partition", "link": "https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/" },
+        { "id": "move-zeroes", "title": "Move Zeroes", "difficulty": "Easy", "pattern": "Partition", "link": "https://leetcode.com/problems/move-zeroes/" },
+        { "id": "3sum-closest", "title": "3Sum Closest", "difficulty": "Medium", "pattern": "K-Sum", "link": "https://leetcode.com/problems/3sum-closest/" },
+        { "id": "squares-of-a-sorted-array", "title": "Squares of a Sorted Array", "difficulty": "Easy", "pattern": "Opposite Ends", "link": "https://leetcode.com/problems/squares-of-a-sorted-array/" },
+        { "id": "is-subsequence", "title": "Is Subsequence", "difficulty": "Easy", "pattern": "Fast & Slow Pointers", "link": "https://leetcode.com/problems/is-subsequence/" }
+      ]
+    },
+    {
+      "id": "sliding_window",
+      "name": "Sliding Window",
+      "patterns": ["Fixed Window", "Variable Window - Longest", "Variable Window - Shortest", "Window with Frequency Map"],
+      "explanation": [
+        "Sliding Window is a subset of two pointers used to monitor a contiguous subsequence (subarray or substring) of elements.",
+        "We maintain a 'window' bound by two pointers (left and right). The right pointer expands the window to satisfy a condition, while the left pointer shrinks it when the condition is violated.",
+        "This turns O(N^2) brute-force nested loops into efficient O(N) single-pass solutions by sliding over the collection rather than recalculating overlapping segments."
+      ],
+      "problems": [
+        { "id": "best-time-to-buy-and-sell-stock", "title": "Best Time to Buy and Sell Stock", "difficulty": "Easy", "pattern": "Variable Window - Longest", "link": "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/" },
+        { "id": "longest-substring-without-repeating-characters", "title": "Longest Substring Without Repeating Characters", "difficulty": "Medium", "pattern": "Variable Window - Longest", "link": "https://leetcode.com/problems/longest-substring-without-repeating-characters/" },
+        { "id": "longest-repeating-character-replacement", "title": "Longest Repeating Character Replacement", "difficulty": "Medium", "pattern": "Variable Window - Longest", "link": "https://leetcode.com/problems/longest-repeating-character-replacement/" },
+        { "id": "permutation-in-string", "title": "Permutation in String", "difficulty": "Medium", "pattern": "Fixed Window", "link": "https://leetcode.com/problems/permutation-in-string/" },
+        { "id": "minimum-window-substring", "title": "Minimum Window Substring", "difficulty": "Hard", "pattern": "Variable Window - Shortest", "link": "https://leetcode.com/problems/minimum-window-substring/" },
+        { "id": "sliding-window-maximum", "title": "Sliding Window Maximum", "difficulty": "Hard", "pattern": "Fixed Window", "link": "https://leetcode.com/problems/sliding-window-maximum/" },
+        { "id": "max-consecutive-ones-iii", "title": "Max Consecutive Ones III", "difficulty": "Medium", "pattern": "Variable Window - Longest", "link": "https://leetcode.com/problems/max-consecutive-ones-iii/" },
+        { "id": "fruit-into-baskets", "title": "Fruit Into Baskets", "difficulty": "Medium", "pattern": "Variable Window - Longest", "link": "https://leetcode.com/problems/fruit-into-baskets/" },
+        { "id": "minimum-size-subarray-sum", "title": "Minimum Size Subarray Sum", "difficulty": "Medium", "pattern": "Variable Window - Shortest", "link": "https://leetcode.com/problems/minimum-size-subarray-sum/" },
+        { "id": "number-of-substrings-containing-all-three-characters", "title": "Number of Substrings Containing All Three Characters", "difficulty": "Medium", "pattern": "Window with Frequency Map", "link": "https://leetcode.com/problems/number-of-substrings-containing-all-three-characters/" },
+        { "id": "find-all-anagrams-in-a-string", "title": "Find All Anagrams in a String", "difficulty": "Medium", "pattern": "Fixed Window", "link": "https://leetcode.com/problems/find-all-anagrams-in-a-string/" },
+        { "id": "longest-subarray-of-1s-after-deleting-one-element", "title": "Longest Subarray of 1's After Deleting One Element", "difficulty": "Medium", "pattern": "Variable Window - Longest", "link": "https://leetcode.com/problems/longest-subarray-of-1s-after-deleting-one-element/" }
+      ]
+    },
+    {
+      "id": "stack",
+      "name": "Stack",
+      "patterns": ["Matching/Validation", "Monotonic Stack - Next Greater", "Monotonic Stack - Next Smaller", "Expression Evaluation", "Stack with Design"],
+      "explanation": [
+        "A Stack is a Last-In-First-Out (LIFO) data structure. You can only push items onto the top and pop items off the top.",
+        "Stacks naturally track state that needs to be reversed or evaluated backwards, making them perfect for checking matching pairs (like parentheses), undo operations, and evaluating expressions.",
+        "A 'Monotonic Stack' is a specialized stack heavily tested in interviews; it strictly maintains either an increasing or decreasing order. That makes it perfect for finding the 'next greater' or 'next smaller' element in O(N) time."
+      ],
+      "problems": [
+        { "id": "valid-parentheses", "title": "Valid Parentheses", "difficulty": "Easy", "pattern": "Matching/Validation", "link": "https://leetcode.com/problems/valid-parentheses/" },
+        { "id": "min-stack", "title": "Min Stack", "difficulty": "Medium", "pattern": "Stack with Design", "link": "https://leetcode.com/problems/min-stack/" },
+        { "id": "evaluate-reverse-polish-notation", "title": "Evaluate Reverse Polish Notation", "difficulty": "Medium", "pattern": "Expression Evaluation", "link": "https://leetcode.com/problems/evaluate-reverse-polish-notation/" },
+        { "id": "generate-parentheses", "title": "Generate Parentheses", "difficulty": "Medium", "pattern": "Matching/Validation", "link": "https://leetcode.com/problems/generate-parentheses/" },
+        { "id": "daily-temperatures", "title": "Daily Temperatures", "difficulty": "Medium", "pattern": "Monotonic Stack - Next Greater", "link": "https://leetcode.com/problems/daily-temperatures/" },
+        { "id": "car-fleet", "title": "Car Fleet", "difficulty": "Medium", "pattern": "Monotonic Stack - Next Greater", "link": "https://leetcode.com/problems/car-fleet/" },
+        { "id": "largest-rectangle-in-histogram", "title": "Largest Rectangle in Histogram", "difficulty": "Hard", "pattern": "Monotonic Stack - Next Smaller", "link": "https://leetcode.com/problems/largest-rectangle-in-histogram/" },
+        { "id": "next-greater-element-i", "title": "Next Greater Element I", "difficulty": "Easy", "pattern": "Monotonic Stack - Next Greater", "link": "https://leetcode.com/problems/next-greater-element-i/" },
+        { "id": "next-greater-element-ii", "title": "Next Greater Element II", "difficulty": "Medium", "pattern": "Monotonic Stack - Next Greater", "link": "https://leetcode.com/problems/next-greater-element-ii/" },
+        { "id": "asteroid-collision", "title": "Asteroid Collision", "difficulty": "Medium", "pattern": "Matching/Validation", "link": "https://leetcode.com/problems/asteroid-collision/" },
+        { "id": "remove-k-digits", "title": "Remove K Digits", "difficulty": "Medium", "pattern": "Monotonic Stack - Next Smaller", "link": "https://leetcode.com/problems/remove-k-digits/" },
+        { "id": "sum-of-subarray-minimums", "title": "Sum of Subarray Minimums", "difficulty": "Medium", "pattern": "Monotonic Stack - Next Smaller", "link": "https://leetcode.com/problems/sum-of-subarray-minimums/" },
+        { "id": "decode-string", "title": "Decode String", "difficulty": "Medium", "pattern": "Expression Evaluation", "link": "https://leetcode.com/problems/decode-string/" },
+        { "id": "maximal-rectangle", "title": "Maximal Rectangle", "difficulty": "Hard", "pattern": "Monotonic Stack - Next Smaller", "link": "https://leetcode.com/problems/maximal-rectangle/" }
+      ]
+    },
+    {
+      "id": "queues",
+      "name": "Queues",
+      "patterns": ["Simulation", "BFS Base", "Deque / Sliding Window", "Circular Queue Design", "Priority Queue / Heap"],
+      "explanation": [
+        "A Queue is a First-In-First-Out (FIFO) data structure. The first element added to the queue will be the first one to be removed, much like a line at a store.",
+        "Queues are the backbone of Breadth-First Search (BFS) and level-order traversals in graphs and trees.",
+        "There are variations of queues such as standard Queues, Deques (Double Ended Queues where you can push/pop from both ends), and Priority Queues (heaps)."
+      ],
+      "problems": [
+        { "id": "implement-queue-using-stacks", "title": "Implement Queue using Stacks", "difficulty": "Easy", "pattern": "Simulation", "link": "https://leetcode.com/problems/implement-queue-using-stacks/" },
+        { "id": "number-of-students-unable-to-eat-lunch", "title": "Number of Students Unable to Eat Lunch", "difficulty": "Easy", "pattern": "Simulation", "link": "https://leetcode.com/problems/number-of-students-unable-to-eat-lunch/" },
+        { "id": "time-needed-to-buy-tickets", "title": "Time Needed to Buy Tickets", "difficulty": "Easy", "pattern": "Simulation", "link": "https://leetcode.com/problems/time-needed-to-buy-tickets/" },
+        { "id": "design-circular-queue", "title": "Design Circular Queue", "difficulty": "Medium", "pattern": "Circular Queue Design", "link": "https://leetcode.com/problems/design-circular-queue/" },
+        { "id": "reveal-cards-in-increasing-order", "title": "Reveal Cards In Increasing Order", "difficulty": "Medium", "pattern": "Simulation", "link": "https://leetcode.com/problems/reveal-cards-in-increasing-order/" },
+        { "id": "dota2-senate", "title": "Dota2 Senate", "difficulty": "Medium", "pattern": "Simulation", "link": "https://leetcode.com/problems/dota2-senate/" },
+        { "id": "task-scheduler", "title": "Task Scheduler", "difficulty": "Medium", "pattern": "Priority Queue / Heap", "link": "https://leetcode.com/problems/task-scheduler/" },
+        { "id": "design-hit-counter", "title": "Design Hit Counter", "difficulty": "Medium", "pattern": "Circular Queue Design", "link": "https://leetcode.com/problems/design-hit-counter/" }
+      ]
+    },
+    {
+      "id": "binary_search",
+      "name": "Binary Search",
+      "patterns": ["Standard Search", "Search in Rotated / Modified Array", "Binary Search on Answer", "Search in 2D", "Finding Boundaries"],
+      "explanation": [
+        "Binary Search drastically reduces the search space by half at every step. This makes it possible to search millions of records in mere milliseconds, providing a logarithmic O(log N) time complexity.",
+        "While standard binary search finds targets in sorted arrays, competitive problems often challenge you to apply binary search on a 'Search Space'.",
+        "If you can determine that a function is monotonically increasing or decreasing (e.g., 'if X works, then X+1 works' or vice versa), you can use binary search to find the optimal answer in a massive range."
+      ],
+      "problems": [
+        { "id": "binary-search", "title": "Binary Search", "difficulty": "Easy", "pattern": "Standard Search", "link": "https://leetcode.com/problems/binary-search/" },
+        { "id": "first-bad-version", "title": "First Bad Version", "difficulty": "Easy", "pattern": "Finding Boundaries", "link": "https://leetcode.com/problems/first-bad-version/" },
+        { "id": "find-first-and-last-position", "title": "Find First and Last Position of Element in Sorted Array", "difficulty": "Medium", "pattern": "Finding Boundaries", "link": "https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/" },
+        { "id": "search-a-2d-matrix", "title": "Search a 2D Matrix", "difficulty": "Medium", "pattern": "Search in 2D", "link": "https://leetcode.com/problems/search-a-2d-matrix/" },
+        { "id": "search-a-2d-matrix-ii", "title": "Search a 2D Matrix II", "difficulty": "Medium", "pattern": "Search in 2D", "link": "https://leetcode.com/problems/search-a-2d-matrix-ii/" },
+        { "id": "find-minimum-in-rotated-sorted-array", "title": "Find Minimum in Rotated Sorted Array", "difficulty": "Medium", "pattern": "Search in Rotated / Modified Array", "link": "https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/" },
+        { "id": "find-minimum-in-rotated-sorted-array-ii", "title": "Find Minimum in Rotated Sorted Array II", "difficulty": "Hard", "pattern": "Search in Rotated / Modified Array", "link": "https://leetcode.com/problems/find-minimum-in-rotated-sorted-array-ii/" },
+        { "id": "search-in-rotated-sorted-array", "title": "Search in Rotated Sorted Array", "difficulty": "Medium", "pattern": "Search in Rotated / Modified Array", "link": "https://leetcode.com/problems/search-in-rotated-sorted-array/" },
+        { "id": "search-in-rotated-sorted-array-ii", "title": "Search in Rotated Sorted Array II", "difficulty": "Medium", "pattern": "Search in Rotated / Modified Array", "link": "https://leetcode.com/problems/search-in-rotated-sorted-array-ii/" },
+        { "id": "koko-eating-bananas", "title": "Koko Eating Bananas", "difficulty": "Medium", "pattern": "Binary Search on Answer", "link": "https://leetcode.com/problems/koko-eating-bananas/" },
+        { "id": "find-peak-element", "title": "Find Peak Element", "difficulty": "Medium", "pattern": "Finding Boundaries", "link": "https://leetcode.com/problems/find-peak-element/" },
+        { "id": "capacity-to-ship-packages-within-d-days", "title": "Capacity To Ship Packages Within D Days", "difficulty": "Medium", "pattern": "Binary Search on Answer", "link": "https://leetcode.com/problems/capacity-to-ship-packages-within-d-days/" },
+        { "id": "split-array-largest-sum", "title": "Split Array Largest Sum", "difficulty": "Hard", "pattern": "Binary Search on Answer", "link": "https://leetcode.com/problems/split-array-largest-sum/" },
+        { "id": "minimum-number-of-days-to-make-m-bouquets", "title": "Minimum Number of Days to Make m Bouquets", "difficulty": "Medium", "pattern": "Binary Search on Answer", "link": "https://leetcode.com/problems/minimum-number-of-days-to-make-m-bouquets/" },
+        { "id": "aggressive-cows", "title": "Aggressive Cows (GFG)", "difficulty": "Medium", "pattern": "Binary Search on Answer", "link": "https://www.geeksforgeeks.org/aggressive-cows/" },
+        { "id": "allocate-minimum-number-of-pages", "title": "Allocate Minimum Number of Pages (GFG)", "difficulty": "Medium", "pattern": "Binary Search on Answer", "link": "https://www.geeksforgeeks.org/allocate-minimum-number-pages/" },
+        { "id": "median-of-two-sorted-arrays", "title": "Median of Two Sorted Arrays", "difficulty": "Hard", "pattern": "Finding Boundaries", "link": "https://leetcode.com/problems/median-of-two-sorted-arrays/" },
+        { "id": "kth-smallest-element-in-a-sorted-matrix", "title": "Kth Smallest Element in a Sorted Matrix", "difficulty": "Medium", "pattern": "Binary Search on Answer", "link": "https://leetcode.com/problems/kth-smallest-element-in-a-sorted-matrix/" },
+        { "id": "count-of-smaller-numbers-after-self", "title": "Count of Smaller Numbers After Self", "difficulty": "Hard", "pattern": "Finding Boundaries", "link": "https://leetcode.com/problems/count-of-smaller-numbers-after-self/" }
+      ]
+    },
+    {
+      "id": "linked_list",
+      "name": "Linked List",
+      "patterns": ["Reversal", "Fast & Slow Pointers (Cycle)", "Merge / Sort", "In-place Modification", "Two-pass / nth from end"],
+      "explanation": [
+        "Linked Lists consist of nodes sequentially pointing to each other. Unlike arrays, they are not contiguous in memory, preventing O(1) random access but allowing O(1) insertions or deletions if you hold a reference to the node.",
+        "Always pay attention to edge cases: Empty lists, single node lists, and operating on the head/tail directly.",
+        "To ease list operations and avoid painful edge cases when modifying the head, instantiate a 'Dummy Node' pointing to the head. Return dummy.next as your final answer."
+      ],
+      "problems": [
+        { "id": "reverse-linked-list", "title": "Reverse Linked List", "difficulty": "Easy", "pattern": "Reversal", "link": "https://leetcode.com/problems/reverse-linked-list/" },
+        { "id": "reverse-linked-list-ii", "title": "Reverse Linked List II", "difficulty": "Medium", "pattern": "Reversal", "link": "https://leetcode.com/problems/reverse-linked-list-ii/" },
+        { "id": "merge-two-sorted-lists", "title": "Merge Two Sorted Lists", "difficulty": "Easy", "pattern": "Merge / Sort", "link": "https://leetcode.com/problems/merge-two-sorted-lists/" },
+        { "id": "linked-list-cycle", "title": "Linked List Cycle", "difficulty": "Easy", "pattern": "Fast & Slow Pointers (Cycle)", "link": "https://leetcode.com/problems/linked-list-cycle/" },
+        { "id": "linked-list-cycle-ii", "title": "Linked List Cycle II", "difficulty": "Medium", "pattern": "Fast & Slow Pointers (Cycle)", "link": "https://leetcode.com/problems/linked-list-cycle-ii/" },
+        { "id": "reorder-list", "title": "Reorder List", "difficulty": "Medium", "pattern": "In-place Modification", "link": "https://leetcode.com/problems/reorder-list/" },
+        { "id": "remove-nth-node-from-end-of-list", "title": "Remove Nth Node From End of List", "difficulty": "Medium", "pattern": "Two-pass / nth from end", "link": "https://leetcode.com/problems/remove-nth-node-from-end-of-list/" },
+        { "id": "copy-list-with-random-pointer", "title": "Copy List with Random Pointer", "difficulty": "Medium", "pattern": "In-place Modification", "link": "https://leetcode.com/problems/copy-list-with-random-pointer/" },
+        { "id": "add-two-numbers", "title": "Add Two Numbers", "difficulty": "Medium", "pattern": "In-place Modification", "link": "https://leetcode.com/problems/add-two-numbers/" },
+        { "id": "find-the-duplicate-number", "title": "Find the Duplicate Number", "difficulty": "Medium", "pattern": "Fast & Slow Pointers (Cycle)", "link": "https://leetcode.com/problems/find-the-duplicate-number/" },
+        { "id": "merge-k-sorted-lists", "title": "Merge k Sorted Lists", "difficulty": "Hard", "pattern": "Merge / Sort", "link": "https://leetcode.com/problems/merge-k-sorted-lists/" },
+        { "id": "reverse-nodes-in-k-group", "title": "Reverse Nodes in k-Group", "difficulty": "Hard", "pattern": "Reversal", "link": "https://leetcode.com/problems/reverse-nodes-in-k-group/" },
+        { "id": "sort-list", "title": "Sort List", "difficulty": "Medium", "pattern": "Merge / Sort", "link": "https://leetcode.com/problems/sort-list/" },
+        { "id": "palindrome-linked-list", "title": "Palindrome Linked List", "difficulty": "Easy", "pattern": "Fast & Slow Pointers (Cycle)", "link": "https://leetcode.com/problems/palindrome-linked-list/" },
+        { "id": "intersection-of-two-linked-lists", "title": "Intersection of Two Linked Lists", "difficulty": "Easy", "pattern": "Two-pass / nth from end", "link": "https://leetcode.com/problems/intersection-of-two-linked-lists/" },
+        { "id": "flatten-a-multilevel-doubly-linked-list", "title": "Flatten a Multilevel Doubly Linked List", "difficulty": "Medium", "pattern": "In-place Modification", "link": "https://leetcode.com/problems/flatten-a-multilevel-doubly-linked-list/" },
+        { "id": "rotate-list", "title": "Rotate List", "difficulty": "Medium", "pattern": "In-place Modification", "link": "https://leetcode.com/problems/rotate-list/" }
+      ]
+    },
+    {
+      "id": "trees",
+      "name": "Trees & BST",
+      "patterns": ["DFS - PreOrder", "DFS - InOrder", "DFS - PostOrder", "BFS / Level Order", "BST Operations", "Tree Construction", "Path Problems"],
+      "explanation": [
+        "Trees represent hierarchical state mappings. A tree must contain a single root node and cannot contain cycles.",
+        "You'll traverse trees via Depth First Search (DFS - pre, in, or post order using recursion/stacks) or Breadth First Search (BFS - level order using queues).",
+        "A Binary Search Tree (BST) specifically orders data such that all left descendants are smaller than the parent, and all right descendants are larger. An in-order traversal of a BST maps elements in sorted order."
+      ],
+      "problems": [
+        { "id": "invert-binary-tree", "title": "Invert Binary Tree", "difficulty": "Easy", "pattern": "DFS - PreOrder", "link": "https://leetcode.com/problems/invert-binary-tree/" },
+        { "id": "maximum-depth-of-binary-tree", "title": "Maximum Depth of Binary Tree", "difficulty": "Easy", "pattern": "DFS - PostOrder", "link": "https://leetcode.com/problems/maximum-depth-of-binary-tree/" },
+        { "id": "minimum-depth-of-binary-tree", "title": "Minimum Depth of Binary Tree", "difficulty": "Easy", "pattern": "BFS / Level Order", "link": "https://leetcode.com/problems/minimum-depth-of-binary-tree/" },
+        { "id": "diameter-of-binary-tree", "title": "Diameter of Binary Tree", "difficulty": "Easy", "pattern": "DFS - PostOrder", "link": "https://leetcode.com/problems/diameter-of-binary-tree/" },
+        { "id": "balanced-binary-tree", "title": "Balanced Binary Tree", "difficulty": "Easy", "pattern": "DFS - PostOrder", "link": "https://leetcode.com/problems/balanced-binary-tree/" },
+        { "id": "same-tree", "title": "Same Tree", "difficulty": "Easy", "pattern": "DFS - PreOrder", "link": "https://leetcode.com/problems/same-tree/" },
+        { "id": "subtree-of-another-tree", "title": "Subtree of Another Tree", "difficulty": "Easy", "pattern": "DFS - PreOrder", "link": "https://leetcode.com/problems/subtree-of-another-tree/" },
+        { "id": "lowest-common-ancestor-bst", "title": "Lowest Common Ancestor of a BST", "difficulty": "Medium", "pattern": "BST Operations", "link": "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/" },
+        { "id": "lowest-common-ancestor-binary-tree", "title": "Lowest Common Ancestor of a Binary Tree", "difficulty": "Medium", "pattern": "DFS - PostOrder", "link": "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/" },
+        { "id": "binary-tree-level-order-traversal", "title": "Binary Tree Level Order Traversal", "difficulty": "Medium", "pattern": "BFS / Level Order", "link": "https://leetcode.com/problems/binary-tree-level-order-traversal/" },
+        { "id": "binary-tree-zigzag-level-order-traversal", "title": "Binary Tree Zigzag Level Order Traversal", "difficulty": "Medium", "pattern": "BFS / Level Order", "link": "https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/" },
+        { "id": "binary-tree-right-side-view", "title": "Binary Tree Right Side View", "difficulty": "Medium", "pattern": "BFS / Level Order", "link": "https://leetcode.com/problems/binary-tree-right-side-view/" },
+        { "id": "count-good-nodes-in-binary-tree", "title": "Count Good Nodes in Binary Tree", "difficulty": "Medium", "pattern": "DFS - PreOrder", "link": "https://leetcode.com/problems/count-good-nodes-in-binary-tree/" },
+        { "id": "validate-binary-search-tree", "title": "Validate Binary Search Tree", "difficulty": "Medium", "pattern": "BST Operations", "link": "https://leetcode.com/problems/validate-binary-search-tree/" },
+        { "id": "kth-smallest-element-in-bst", "title": "Kth Smallest Element in a BST", "difficulty": "Medium", "pattern": "BST Operations", "link": "https://leetcode.com/problems/kth-smallest-element-in-a-bst/" },
+        { "id": "construct-binary-tree-preorder-inorder", "title": "Construct Binary Tree from Preorder and Inorder Traversal", "difficulty": "Medium", "pattern": "Tree Construction", "link": "https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/" },
+        { "id": "construct-binary-tree-inorder-postorder", "title": "Construct Binary Tree from Inorder and Postorder Traversal", "difficulty": "Medium", "pattern": "Tree Construction", "link": "https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/" },
+        { "id": "convert-sorted-array-to-bst", "title": "Convert Sorted Array to Binary Search Tree", "difficulty": "Easy", "pattern": "Tree Construction", "link": "https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/" },
+        { "id": "path-sum", "title": "Path Sum", "difficulty": "Easy", "pattern": "Path Problems", "link": "https://leetcode.com/problems/path-sum/" },
+        { "id": "path-sum-ii", "title": "Path Sum II", "difficulty": "Medium", "pattern": "Path Problems", "link": "https://leetcode.com/problems/path-sum-ii/" },
+        { "id": "binary-tree-maximum-path-sum", "title": "Binary Tree Maximum Path Sum", "difficulty": "Hard", "pattern": "Path Problems", "link": "https://leetcode.com/problems/binary-tree-maximum-path-sum/" },
+        { "id": "sum-root-to-leaf-numbers", "title": "Sum Root to Leaf Numbers", "difficulty": "Medium", "pattern": "Path Problems", "link": "https://leetcode.com/problems/sum-root-to-leaf-numbers/" },
+        { "id": "serialize-and-deserialize-binary-tree", "title": "Serialize and Deserialize Binary Tree", "difficulty": "Hard", "pattern": "Tree Construction", "link": "https://leetcode.com/problems/serialize-and-deserialize-binary-tree/" },
+        { "id": "flatten-binary-tree-to-linked-list", "title": "Flatten Binary Tree to Linked List", "difficulty": "Medium", "pattern": "DFS - PreOrder", "link": "https://leetcode.com/problems/flatten-binary-tree-to-linked-list/" },
+        { "id": "populating-next-right-pointers", "title": "Populating Next Right Pointers in Each Node", "difficulty": "Medium", "pattern": "BFS / Level Order", "link": "https://leetcode.com/problems/populating-next-right-pointers-in-each-node/" },
+        { "id": "maximum-width-of-binary-tree", "title": "Maximum Width of Binary Tree", "difficulty": "Medium", "pattern": "BFS / Level Order", "link": "https://leetcode.com/problems/maximum-width-of-binary-tree/" },
+        { "id": "vertical-order-traversal", "title": "Vertical Order Traversal of a Binary Tree", "difficulty": "Hard", "pattern": "BFS / Level Order", "link": "https://leetcode.com/problems/vertical-order-traversal-of-a-binary-tree/" },
+        { "id": "morris-traversal-inorder", "title": "Binary Tree Inorder Traversal (Morris)", "difficulty": "Easy", "pattern": "DFS - InOrder", "link": "https://leetcode.com/problems/binary-tree-inorder-traversal/" }
+      ]
+    },
+    {
+      "id": "heap_priority_queue",
+      "name": "Heap / Priority Queue",
+      "patterns": ["Top K Elements", "Kth Largest/Smallest", "Merge K Sorted", "Two Heaps", "Scheduling"],
+      "explanation": [
+        "A Heap is a complete binary tree that satisfies the heap property: in a max-heap, every parent is larger than its children; in a min-heap, every parent is smaller.",
+        "Heaps provide O(log N) push and pop and O(1) peek at the max or min element, making them the go-to structure for 'top K' problems.",
+        "The 'Two Heaps' pattern is a powerful technique: maintain a max-heap of the smaller half and a min-heap of the larger half to efficiently track medians or balanced partitions."
+      ],
+      "problems": [
+        { "id": "kth-largest-element-in-array", "title": "Kth Largest Element in an Array", "difficulty": "Medium", "pattern": "Kth Largest/Smallest", "link": "https://leetcode.com/problems/kth-largest-element-in-an-array/" },
+        { "id": "kth-largest-element-in-stream", "title": "Kth Largest Element in a Stream", "difficulty": "Easy", "pattern": "Kth Largest/Smallest", "link": "https://leetcode.com/problems/kth-largest-element-in-a-stream/" },
+        { "id": "last-stone-weight", "title": "Last Stone Weight", "difficulty": "Easy", "pattern": "Scheduling", "link": "https://leetcode.com/problems/last-stone-weight/" },
+        { "id": "k-closest-points-to-origin", "title": "K Closest Points to Origin", "difficulty": "Medium", "pattern": "Top K Elements", "link": "https://leetcode.com/problems/k-closest-points-to-origin/" },
+        { "id": "task-scheduler-heap", "title": "Task Scheduler", "difficulty": "Medium", "pattern": "Scheduling", "link": "https://leetcode.com/problems/task-scheduler/" },
+        { "id": "design-twitter", "title": "Design Twitter", "difficulty": "Medium", "pattern": "Merge K Sorted", "link": "https://leetcode.com/problems/design-twitter/" },
+        { "id": "find-median-from-data-stream", "title": "Find Median from Data Stream", "difficulty": "Hard", "pattern": "Two Heaps", "link": "https://leetcode.com/problems/find-median-from-data-stream/" },
+        { "id": "sliding-window-median", "title": "Sliding Window Median", "difficulty": "Hard", "pattern": "Two Heaps", "link": "https://leetcode.com/problems/sliding-window-median/" },
+        { "id": "ipo", "title": "IPO", "difficulty": "Hard", "pattern": "Two Heaps", "link": "https://leetcode.com/problems/ipo/" },
+        { "id": "top-k-frequent-words", "title": "Top K Frequent Words", "difficulty": "Medium", "pattern": "Top K Elements", "link": "https://leetcode.com/problems/top-k-frequent-words/" },
+        { "id": "reorganize-string", "title": "Reorganize String", "difficulty": "Medium", "pattern": "Scheduling", "link": "https://leetcode.com/problems/reorganize-string/" }
+      ]
+    },
+    {
+      "id": "graphs",
+      "name": "Graphs & Matrices",
+      "patterns": ["DFS / BFS Grid", "Topological Sort", "Union Find", "Shortest Path (Dijkstra)", "Cycle Detection", "Bipartite / Coloring"],
+      "explanation": [
+        "A Graph models pairwise connections (edges) between isolated entities (vertices/nodes).",
+        "Graphs can be represented through Adjacency Lists (best for sparse graphs) or Matrices (best for dense graphs). Make sure to carefully track visited nodes in a set to avoid spinning into infinite calculation cycles.",
+        "Key Graph Algorithms: Breadth-First Search (shortest unweighted paths), Depth-First Search (deep explorations or topological sorts), Dijkstra's Algorithm (shortest weighted paths), and Union Find (disjoint sets bridging networks)."
+      ],
+      "problems": [
+        { "id": "number-of-islands", "title": "Number of Islands", "difficulty": "Medium", "pattern": "DFS / BFS Grid", "link": "https://leetcode.com/problems/number-of-islands/" },
+        { "id": "max-area-of-island", "title": "Max Area of Island", "difficulty": "Medium", "pattern": "DFS / BFS Grid", "link": "https://leetcode.com/problems/max-area-of-island/" },
+        { "id": "flood-fill", "title": "Flood Fill", "difficulty": "Easy", "pattern": "DFS / BFS Grid", "link": "https://leetcode.com/problems/flood-fill/" },
+        { "id": "rotting-oranges", "title": "Rotting Oranges", "difficulty": "Medium", "pattern": "DFS / BFS Grid", "link": "https://leetcode.com/problems/rotting-oranges/" },
+        { "id": "01-matrix", "title": "01 Matrix", "difficulty": "Medium", "pattern": "DFS / BFS Grid", "link": "https://leetcode.com/problems/01-matrix/" },
+        { "id": "clone-graph", "title": "Clone Graph", "difficulty": "Medium", "pattern": "DFS / BFS Grid", "link": "https://leetcode.com/problems/clone-graph/" },
+        { "id": "pacific-atlantic-water-flow", "title": "Pacific Atlantic Water Flow", "difficulty": "Medium", "pattern": "DFS / BFS Grid", "link": "https://leetcode.com/problems/pacific-atlantic-water-flow/" },
+        { "id": "surrounded-regions", "title": "Surrounded Regions", "difficulty": "Medium", "pattern": "DFS / BFS Grid", "link": "https://leetcode.com/problems/surrounded-regions/" },
+        { "id": "course-schedule", "title": "Course Schedule", "difficulty": "Medium", "pattern": "Topological Sort", "link": "https://leetcode.com/problems/course-schedule/" },
+        { "id": "course-schedule-ii", "title": "Course Schedule II", "difficulty": "Medium", "pattern": "Topological Sort", "link": "https://leetcode.com/problems/course-schedule-ii/" },
+        { "id": "alien-dictionary", "title": "Alien Dictionary", "difficulty": "Hard", "pattern": "Topological Sort", "link": "https://leetcode.com/problems/alien-dictionary/" },
+        { "id": "number-of-connected-components", "title": "Number of Connected Components in Undirected Graph", "difficulty": "Medium", "pattern": "Union Find", "link": "https://leetcode.com/problems/number-of-connected-components-in-an-undirected-graph/" },
+        { "id": "redundant-connection", "title": "Redundant Connection", "difficulty": "Medium", "pattern": "Union Find", "link": "https://leetcode.com/problems/redundant-connection/" },
+        { "id": "accounts-merge", "title": "Accounts Merge", "difficulty": "Medium", "pattern": "Union Find", "link": "https://leetcode.com/problems/accounts-merge/" },
+        { "id": "number-of-provinces", "title": "Number of Provinces", "difficulty": "Medium", "pattern": "Union Find", "link": "https://leetcode.com/problems/number-of-provinces/" },
+        { "id": "network-delay-time", "title": "Network Delay Time", "difficulty": "Medium", "pattern": "Shortest Path (Dijkstra)", "link": "https://leetcode.com/problems/network-delay-time/" },
+        { "id": "cheapest-flights-within-k-stops", "title": "Cheapest Flights Within K Stops", "difficulty": "Medium", "pattern": "Shortest Path (Dijkstra)", "link": "https://leetcode.com/problems/cheapest-flights-within-k-stops/" },
+        { "id": "path-with-minimum-effort", "title": "Path With Minimum Effort", "difficulty": "Medium", "pattern": "Shortest Path (Dijkstra)", "link": "https://leetcode.com/problems/path-with-minimum-effort/" },
+        { "id": "is-graph-bipartite", "title": "Is Graph Bipartite?", "difficulty": "Medium", "pattern": "Bipartite / Coloring", "link": "https://leetcode.com/problems/is-graph-bipartite/" },
+        { "id": "possible-bipartition", "title": "Possible Bipartition", "difficulty": "Medium", "pattern": "Bipartite / Coloring", "link": "https://leetcode.com/problems/possible-bipartition/" },
+        { "id": "detect-cycle-in-directed-graph", "title": "Detect Cycle in Directed Graph (GFG)", "difficulty": "Medium", "pattern": "Cycle Detection", "link": "https://www.geeksforgeeks.org/detect-cycle-in-a-graph/" },
+        { "id": "word-ladder", "title": "Word Ladder", "difficulty": "Hard", "pattern": "DFS / BFS Grid", "link": "https://leetcode.com/problems/word-ladder/" },
+        { "id": "minimum-spanning-tree-kruskal", "title": "Min Cost to Connect All Points (Kruskal's)", "difficulty": "Medium", "pattern": "Union Find", "link": "https://leetcode.com/problems/min-cost-to-connect-all-points/" }
+      ]
+    },
+    {
+      "id": "dp",
+      "name": "Dynamic Programming",
+      "patterns": ["1D DP (Linear)", "2D DP (Grid)", "Knapsack (0/1 & Unbounded)", "LCS / LIS", "String DP", "Interval DP", "State Machine DP"],
+      "explanation": [
+        "Dynamic Programming (DP) revolves around breaking a larger, complex problem into simpler, identical, overlapping subproblems.",
+        "Instead of redundantly calculating the same subproblem repeatedly, DP stores those computed answers into memory.",
+        "You can deploy DP via Memoization (Recursion passing state down into a cache map) or Tabulation (Iterative approach building out a completely formulated array iteratively from the bottom up)."
+      ],
+      "problems": [
+        { "id": "climbing-stairs", "title": "Climbing Stairs", "difficulty": "Easy", "pattern": "1D DP (Linear)", "link": "https://leetcode.com/problems/climbing-stairs/" },
+        { "id": "min-cost-climbing-stairs", "title": "Min Cost Climbing Stairs", "difficulty": "Easy", "pattern": "1D DP (Linear)", "link": "https://leetcode.com/problems/min-cost-climbing-stairs/" },
+        { "id": "frog-jump", "title": "Frog Jump (GFG)", "difficulty": "Medium", "pattern": "1D DP (Linear)", "link": "https://www.geeksforgeeks.org/find-number-of-ways-to-reach-from-a-point-to-a-given-destination/" },
+        { "id": "house-robber", "title": "House Robber", "difficulty": "Medium", "pattern": "1D DP (Linear)", "link": "https://leetcode.com/problems/house-robber/" },
+        { "id": "house-robber-ii", "title": "House Robber II", "difficulty": "Medium", "pattern": "1D DP (Linear)", "link": "https://leetcode.com/problems/house-robber-ii/" },
+        { "id": "house-robber-iii", "title": "House Robber III", "difficulty": "Medium", "pattern": "1D DP (Linear)", "link": "https://leetcode.com/problems/house-robber-iii/" },
+        { "id": "decode-ways", "title": "Decode Ways", "difficulty": "Medium", "pattern": "1D DP (Linear)", "link": "https://leetcode.com/problems/decode-ways/" },
+        { "id": "word-break", "title": "Word Break", "difficulty": "Medium", "pattern": "1D DP (Linear)", "link": "https://leetcode.com/problems/word-break/" },
+        { "id": "coin-change", "title": "Coin Change", "difficulty": "Medium", "pattern": "Knapsack (0/1 & Unbounded)", "link": "https://leetcode.com/problems/coin-change/" },
+        { "id": "coin-change-ii", "title": "Coin Change II", "difficulty": "Medium", "pattern": "Knapsack (0/1 & Unbounded)", "link": "https://leetcode.com/problems/coin-change-ii/" },
+        { "id": "0-1-knapsack", "title": "0/1 Knapsack (GFG)", "difficulty": "Medium", "pattern": "Knapsack (0/1 & Unbounded)", "link": "https://www.geeksforgeeks.org/0-1-knapsack-problem-dp-10/" },
+        { "id": "partition-equal-subset-sum", "title": "Partition Equal Subset Sum", "difficulty": "Medium", "pattern": "Knapsack (0/1 & Unbounded)", "link": "https://leetcode.com/problems/partition-equal-subset-sum/" },
+        { "id": "target-sum", "title": "Target Sum", "difficulty": "Medium", "pattern": "Knapsack (0/1 & Unbounded)", "link": "https://leetcode.com/problems/target-sum/" },
+        { "id": "last-stone-weight-ii", "title": "Last Stone Weight II", "difficulty": "Medium", "pattern": "Knapsack (0/1 & Unbounded)", "link": "https://leetcode.com/problems/last-stone-weight-ii/" },
+        { "id": "longest-increasing-subsequence", "title": "Longest Increasing Subsequence", "difficulty": "Medium", "pattern": "LCS / LIS", "link": "https://leetcode.com/problems/longest-increasing-subsequence/" },
+        { "id": "number-of-longest-increasing-subsequence", "title": "Number of Longest Increasing Subsequences", "difficulty": "Medium", "pattern": "LCS / LIS", "link": "https://leetcode.com/problems/number-of-longest-increasing-subsequence/" },
+        { "id": "longest-common-subsequence", "title": "Longest Common Subsequence", "difficulty": "Medium", "pattern": "LCS / LIS", "link": "https://leetcode.com/problems/longest-common-subsequence/" },
+        { "id": "edit-distance", "title": "Edit Distance", "difficulty": "Medium", "pattern": "String DP", "link": "https://leetcode.com/problems/edit-distance/" },
+        { "id": "longest-palindromic-substring", "title": "Longest Palindromic Substring", "difficulty": "Medium", "pattern": "String DP", "link": "https://leetcode.com/problems/longest-palindromic-substring/" },
+        { "id": "palindromic-substrings", "title": "Palindromic Substrings", "difficulty": "Medium", "pattern": "String DP", "link": "https://leetcode.com/problems/palindromic-substrings/" },
+        { "id": "longest-palindromic-subsequence", "title": "Longest Palindromic Subsequence", "difficulty": "Medium", "pattern": "String DP", "link": "https://leetcode.com/problems/longest-palindromic-subsequence/" },
+        { "id": "distinct-subsequences", "title": "Distinct Subsequences", "difficulty": "Hard", "pattern": "String DP", "link": "https://leetcode.com/problems/distinct-subsequences/" },
+        { "id": "unique-paths", "title": "Unique Paths", "difficulty": "Medium", "pattern": "2D DP (Grid)", "link": "https://leetcode.com/problems/unique-paths/" },
+        { "id": "unique-paths-ii", "title": "Unique Paths II", "difficulty": "Medium", "pattern": "2D DP (Grid)", "link": "https://leetcode.com/problems/unique-paths-ii/" },
+        { "id": "minimum-path-sum", "title": "Minimum Path Sum", "difficulty": "Medium", "pattern": "2D DP (Grid)", "link": "https://leetcode.com/problems/minimum-path-sum/" },
+        { "id": "triangle", "title": "Triangle", "difficulty": "Medium", "pattern": "2D DP (Grid)", "link": "https://leetcode.com/problems/triangle/" },
+        { "id": "maximal-square", "title": "Maximal Square", "difficulty": "Medium", "pattern": "2D DP (Grid)", "link": "https://leetcode.com/problems/maximal-square/" },
+        { "id": "burst-balloons", "title": "Burst Balloons", "difficulty": "Hard", "pattern": "Interval DP", "link": "https://leetcode.com/problems/burst-balloons/" },
+        { "id": "minimum-cost-tree-from-leaf-values", "title": "Minimum Cost Tree From Leaf Values", "difficulty": "Medium", "pattern": "Interval DP", "link": "https://leetcode.com/problems/minimum-cost-tree-from-leaf-values/" },
+        { "id": "strange-printer", "title": "Strange Printer", "difficulty": "Hard", "pattern": "Interval DP", "link": "https://leetcode.com/problems/strange-printer/" },
+        { "id": "best-time-to-buy-sell-stock-cooldown", "title": "Best Time to Buy and Sell Stock with Cooldown", "difficulty": "Medium", "pattern": "State Machine DP", "link": "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/" },
+        { "id": "best-time-to-buy-sell-stock-transaction-fee", "title": "Best Time to Buy and Sell Stock with Transaction Fee", "difficulty": "Medium", "pattern": "State Machine DP", "link": "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/" },
+        { "id": "best-time-to-buy-sell-stock-iv", "title": "Best Time to Buy and Sell Stock IV", "difficulty": "Hard", "pattern": "State Machine DP", "link": "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iv/" },
+        { "id": "painting-the-fences", "title": "Painting the Fences (GFG)", "difficulty": "Medium", "pattern": "1D DP (Linear)", "link": "https://www.geeksforgeeks.org/painting-fence-algorithm/" }
+      ]
+    },
+    {
+      "id": "greedy",
+      "name": "Greedy",
+      "patterns": ["Interval Scheduling", "Sorting + Greedy", "Jump Game", "Greedy on Strings", "Two Arrays Matching", "Minimum Operations"],
+      "explanation": [
+        "Greedy algorithms make the locally optimal choice at each step, hoping to reach a globally optimal solution. Unlike DP, they don't reconsider past decisions.",
+        "Greedy works when a problem has an 'optimal substructure' and a 'greedy choice property' — meaning the locally best choice leads to the globally best answer.",
+        "The key to mastering greedy is proving correctness: sort data to impose structure, then make a single-pass decision at each step."
+      ],
+      "problems": [
+        { "id": "jump-game", "title": "Jump Game", "difficulty": "Medium", "pattern": "Jump Game", "link": "https://leetcode.com/problems/jump-game/" },
+        { "id": "jump-game-ii", "title": "Jump Game II", "difficulty": "Medium", "pattern": "Jump Game", "link": "https://leetcode.com/problems/jump-game-ii/" },
+        { "id": "gas-station", "title": "Gas Station", "difficulty": "Medium", "pattern": "Minimum Operations", "link": "https://leetcode.com/problems/gas-station/" },
+        { "id": "hand-of-straights", "title": "Hand of Straights", "difficulty": "Medium", "pattern": "Sorting + Greedy", "link": "https://leetcode.com/problems/hand-of-straights/" },
+        { "id": "merge-triplets-to-form-target-triplet", "title": "Merge Triplets to Form Target Triplet", "difficulty": "Medium", "pattern": "Sorting + Greedy", "link": "https://leetcode.com/problems/merge-triplets-to-form-target-triplet/" },
+        { "id": "partition-labels", "title": "Partition Labels", "difficulty": "Medium", "pattern": "Greedy on Strings", "link": "https://leetcode.com/problems/partition-labels/" },
+        { "id": "valid-parenthesis-string", "title": "Valid Parenthesis String", "difficulty": "Medium", "pattern": "Greedy on Strings", "link": "https://leetcode.com/problems/valid-parenthesis-string/" },
+        { "id": "meeting-rooms", "title": "Meeting Rooms", "difficulty": "Easy", "pattern": "Interval Scheduling", "link": "https://leetcode.com/problems/meeting-rooms/" },
+        { "id": "meeting-rooms-ii", "title": "Meeting Rooms II", "difficulty": "Medium", "pattern": "Interval Scheduling", "link": "https://leetcode.com/problems/meeting-rooms-ii/" },
+        { "id": "non-overlapping-intervals", "title": "Non-overlapping Intervals", "difficulty": "Medium", "pattern": "Interval Scheduling", "link": "https://leetcode.com/problems/non-overlapping-intervals/" },
+        { "id": "merge-intervals", "title": "Merge Intervals", "difficulty": "Medium", "pattern": "Interval Scheduling", "link": "https://leetcode.com/problems/merge-intervals/" },
+        { "id": "insert-interval", "title": "Insert Interval", "difficulty": "Medium", "pattern": "Interval Scheduling", "link": "https://leetcode.com/problems/insert-interval/" },
+        { "id": "minimum-number-of-arrows-to-burst-balloons", "title": "Minimum Number of Arrows to Burst Balloons", "difficulty": "Medium", "pattern": "Interval Scheduling", "link": "https://leetcode.com/problems/minimum-number-of-arrows-to-burst-balloons/" },
+        { "id": "assign-cookies", "title": "Assign Cookies", "difficulty": "Easy", "pattern": "Two Arrays Matching", "link": "https://leetcode.com/problems/assign-cookies/" },
+        { "id": "candy", "title": "Candy", "difficulty": "Hard", "pattern": "Two Arrays Matching", "link": "https://leetcode.com/problems/candy/" },
+        { "id": "lemonade-change", "title": "Lemonade Change", "difficulty": "Easy", "pattern": "Minimum Operations", "link": "https://leetcode.com/problems/lemonade-change/" },
+        { "id": "largest-number", "title": "Largest Number", "difficulty": "Medium", "pattern": "Sorting + Greedy", "link": "https://leetcode.com/problems/largest-number/" }
+      ]
+    },
+    {
+      "id": "backtracking",
+      "name": "Backtracking",
+      "patterns": ["Subsets", "Permutations", "Combinations", "Board / Grid Search", "Constraint Satisfaction"],
+      "explanation": [
+        "Backtracking is a refined brute-force approach that incrementally builds candidates and abandons them (backtracks) as soon as it determines a candidate cannot lead to a valid solution.",
+        "The core loop is: choose an option, recurse into it, and then undo that choice before trying the next option. This 'undo' is the backtrack step.",
+        "Always think about how to prune the search tree early to avoid exploring unnecessary branches — this is where sorting before recursing pays off."
+      ],
+      "problems": [
+        { "id": "subsets", "title": "Subsets", "difficulty": "Medium", "pattern": "Subsets", "link": "https://leetcode.com/problems/subsets/" },
+        { "id": "subsets-ii", "title": "Subsets II", "difficulty": "Medium", "pattern": "Subsets", "link": "https://leetcode.com/problems/subsets-ii/" },
+        { "id": "permutations", "title": "Permutations", "difficulty": "Medium", "pattern": "Permutations", "link": "https://leetcode.com/problems/permutations/" },
+        { "id": "permutations-ii", "title": "Permutations II", "difficulty": "Medium", "pattern": "Permutations", "link": "https://leetcode.com/problems/permutations-ii/" },
+        { "id": "combination-sum", "title": "Combination Sum", "difficulty": "Medium", "pattern": "Combinations", "link": "https://leetcode.com/problems/combination-sum/" },
+        { "id": "combination-sum-ii", "title": "Combination Sum II", "difficulty": "Medium", "pattern": "Combinations", "link": "https://leetcode.com/problems/combination-sum-ii/" },
+        { "id": "combination-sum-iii", "title": "Combination Sum III", "difficulty": "Medium", "pattern": "Combinations", "link": "https://leetcode.com/problems/combination-sum-iii/" },
+        { "id": "combinations", "title": "Combinations", "difficulty": "Medium", "pattern": "Combinations", "link": "https://leetcode.com/problems/combinations/" },
+        { "id": "letter-combinations-of-a-phone-number", "title": "Letter Combinations of a Phone Number", "difficulty": "Medium", "pattern": "Combinations", "link": "https://leetcode.com/problems/letter-combinations-of-a-phone-number/" },
+        { "id": "word-search", "title": "Word Search", "difficulty": "Medium", "pattern": "Board / Grid Search", "link": "https://leetcode.com/problems/word-search/" },
+        { "id": "word-search-ii", "title": "Word Search II", "difficulty": "Hard", "pattern": "Board / Grid Search", "link": "https://leetcode.com/problems/word-search-ii/" },
+        { "id": "n-queens", "title": "N-Queens", "difficulty": "Hard", "pattern": "Constraint Satisfaction", "link": "https://leetcode.com/problems/n-queens/" },
+        { "id": "n-queens-ii", "title": "N-Queens II", "difficulty": "Hard", "pattern": "Constraint Satisfaction", "link": "https://leetcode.com/problems/n-queens-ii/" },
+        { "id": "sudoku-solver", "title": "Sudoku Solver", "difficulty": "Hard", "pattern": "Constraint Satisfaction", "link": "https://leetcode.com/problems/sudoku-solver/" },
+        { "id": "palindrome-partitioning", "title": "Palindrome Partitioning", "difficulty": "Medium", "pattern": "Subsets", "link": "https://leetcode.com/problems/palindrome-partitioning/" },
+        { "id": "restore-ip-addresses", "title": "Restore IP Addresses", "difficulty": "Medium", "pattern": "Combinations", "link": "https://leetcode.com/problems/restore-ip-addresses/" }
+      ]
+    },
+    {
+      "id": "tries",
+      "name": "Tries",
+      "patterns": ["Insert & Search", "Prefix Matching", "Word Dictionary with Wildcards", "Trie + Backtracking", "Bit Trie (XOR)"],
+      "explanation": [
+        "A Trie (prefix tree) is a tree-like structure where each node represents a single character. Paths from root to marked nodes spell out valid words.",
+        "Tries are optimal for prefix-based searches — finding all words with a given prefix is O(P + K) where P is prefix length and K is results count.",
+        "Bit Tries store binary representations of numbers, enabling O(32) XOR queries — useful for maximum XOR problems."
+      ],
+      "problems": [
+        { "id": "implement-trie-prefix-tree", "title": "Implement Trie (Prefix Tree)", "difficulty": "Medium", "pattern": "Insert & Search", "link": "https://leetcode.com/problems/implement-trie-prefix-tree/" },
+        { "id": "design-add-and-search-words-data-structure", "title": "Design Add and Search Words Data Structure", "difficulty": "Medium", "pattern": "Word Dictionary with Wildcards", "link": "https://leetcode.com/problems/design-add-and-search-words-data-structure/" },
+        { "id": "word-search-ii-trie", "title": "Word Search II", "difficulty": "Hard", "pattern": "Trie + Backtracking", "link": "https://leetcode.com/problems/word-search-ii/" },
+        { "id": "longest-word-in-dictionary", "title": "Longest Word in Dictionary", "difficulty": "Medium", "pattern": "Prefix Matching", "link": "https://leetcode.com/problems/longest-word-in-dictionary/" },
+        { "id": "replace-words", "title": "Replace Words", "difficulty": "Medium", "pattern": "Prefix Matching", "link": "https://leetcode.com/problems/replace-words/" },
+        { "id": "maximum-xor-of-two-numbers-in-an-array", "title": "Maximum XOR of Two Numbers in an Array", "difficulty": "Medium", "pattern": "Bit Trie (XOR)", "link": "https://leetcode.com/problems/maximum-xor-of-two-numbers-in-an-array/" },
+        { "id": "word-break-ii", "title": "Word Break II", "difficulty": "Hard", "pattern": "Trie + Backtracking", "link": "https://leetcode.com/problems/word-break-ii/" },
+        { "id": "count-pairs-with-xor-in-range", "title": "Count Pairs With XOR in a Range", "difficulty": "Hard", "pattern": "Bit Trie (XOR)", "link": "https://leetcode.com/problems/count-pairs-with-xor-in-a-range/" }
+      ]
+    },
+    {
+      "id": "intervals",
+      "name": "Intervals",
+      "patterns": ["Sort & Merge", "Sort & Insert", "Sweep Line", "Overlap Detection"],
+      "explanation": [
+        "Interval problems involve ranges [start, end] and typically require detecting overlaps, merging overlapping ranges, or scheduling non-conflicting intervals.",
+        "Almost always, the first step is to sort intervals by start time. Once sorted, a single pass determines overlaps.",
+        "Sweep Line is a powerful pattern: process events (interval starts and ends) in sorted order using a counter or heap."
+      ],
+      "problems": [
+        { "id": "merge-intervals-2", "title": "Merge Intervals", "difficulty": "Medium", "pattern": "Sort & Merge", "link": "https://leetcode.com/problems/merge-intervals/" },
+        { "id": "insert-interval-2", "title": "Insert Interval", "difficulty": "Medium", "pattern": "Sort & Insert", "link": "https://leetcode.com/problems/insert-interval/" },
+        { "id": "non-overlapping-intervals-2", "title": "Non-overlapping Intervals", "difficulty": "Medium", "pattern": "Overlap Detection", "link": "https://leetcode.com/problems/non-overlapping-intervals/" },
+        { "id": "meeting-rooms-iii", "title": "Meeting Rooms III", "difficulty": "Hard", "pattern": "Sweep Line", "link": "https://leetcode.com/problems/meeting-rooms-iii/" },
+        { "id": "employee-free-time", "title": "Employee Free Time", "difficulty": "Hard", "pattern": "Sort & Merge", "link": "https://leetcode.com/problems/employee-free-time/" },
+        { "id": "interval-list-intersections", "title": "Interval List Intersections", "difficulty": "Medium", "pattern": "Sort & Merge", "link": "https://leetcode.com/problems/interval-list-intersections/" },
+        { "id": "remove-covered-intervals", "title": "Remove Covered Intervals", "difficulty": "Medium", "pattern": "Overlap Detection", "link": "https://leetcode.com/problems/remove-covered-intervals/" },
+        { "id": "minimum-interval-to-include-each-query", "title": "Minimum Interval to Include Each Query", "difficulty": "Hard", "pattern": "Sweep Line", "link": "https://leetcode.com/problems/minimum-interval-to-include-each-query/" }
+      ]
+    },
+    {
+      "id": "bit_manipulation",
+      "name": "Bit Manipulation",
+      "patterns": ["Single Number (XOR)", "Count Bits", "Bit Masking / Subsets", "Power of Two Checks", "Bit Tricks"],
+      "explanation": [
+        "Bit manipulation exploits the binary representation of numbers using operators: AND (&), OR (|), XOR (^), NOT (~), left shift (<<), right shift (>>).",
+        "XOR is especially powerful: x ^ x = 0 and x ^ 0 = x. This makes it ideal for finding lone elements in arrays where everything else appears twice.",
+        "Bit masking enumerates subsets of N elements in O(2^N) using integers 0 to 2^N - 1, where each bit represents whether an element is included."
+      ],
+      "problems": [
+        { "id": "single-number", "title": "Single Number", "difficulty": "Easy", "pattern": "Single Number (XOR)", "link": "https://leetcode.com/problems/single-number/" },
+        { "id": "single-number-ii", "title": "Single Number II", "difficulty": "Medium", "pattern": "Single Number (XOR)", "link": "https://leetcode.com/problems/single-number-ii/" },
+        { "id": "single-number-iii", "title": "Single Number III", "difficulty": "Medium", "pattern": "Single Number (XOR)", "link": "https://leetcode.com/problems/single-number-iii/" },
+        { "id": "number-of-1-bits", "title": "Number of 1 Bits", "difficulty": "Easy", "pattern": "Count Bits", "link": "https://leetcode.com/problems/number-of-1-bits/" },
+        { "id": "counting-bits", "title": "Counting Bits", "difficulty": "Easy", "pattern": "Count Bits", "link": "https://leetcode.com/problems/counting-bits/" },
+        { "id": "reverse-bits", "title": "Reverse Bits", "difficulty": "Easy", "pattern": "Bit Tricks", "link": "https://leetcode.com/problems/reverse-bits/" },
+        { "id": "missing-number", "title": "Missing Number", "difficulty": "Easy", "pattern": "Single Number (XOR)", "link": "https://leetcode.com/problems/missing-number/" },
+        { "id": "sum-of-two-integers", "title": "Sum of Two Integers", "difficulty": "Medium", "pattern": "Bit Tricks", "link": "https://leetcode.com/problems/sum-of-two-integers/" },
+        { "id": "power-of-two", "title": "Power of Two", "difficulty": "Easy", "pattern": "Power of Two Checks", "link": "https://leetcode.com/problems/power-of-two/" },
+        { "id": "power-of-four", "title": "Power of Four", "difficulty": "Easy", "pattern": "Power of Two Checks", "link": "https://leetcode.com/problems/power-of-four/" },
+        { "id": "subsets-bitmask", "title": "Subsets (Bitmask approach)", "difficulty": "Medium", "pattern": "Bit Masking / Subsets", "link": "https://leetcode.com/problems/subsets/" },
+        { "id": "maximum-product-of-word-lengths", "title": "Maximum Product of Word Lengths", "difficulty": "Medium", "pattern": "Bit Masking / Subsets", "link": "https://leetcode.com/problems/maximum-product-of-word-lengths/" }
+      ]
+    },
+    {
+      "id": "math_and_geometry",
+      "name": "Math & Geometry",
+      "patterns": ["Simulation / Spiral", "Number Theory", "Geometry", "Factorial / Combinatorics"],
+      "explanation": [
+        "Math-based problems rely on number properties, modular arithmetic, prime factorization, GCD/LCM, or combinatorics formulas rather than complex data structures.",
+        "Geometry problems often revolve around coordinate manipulation, slope comparisons, or area calculations.",
+        "Simulation problems ask you to model a process step by step — the key is identifying the pattern that avoids an O(N^2) brute simulation."
+      ],
+      "problems": [
+        { "id": "rotate-image", "title": "Rotate Image", "difficulty": "Medium", "pattern": "Simulation / Spiral", "link": "https://leetcode.com/problems/rotate-image/" },
+        { "id": "spiral-matrix", "title": "Spiral Matrix", "difficulty": "Medium", "pattern": "Simulation / Spiral", "link": "https://leetcode.com/problems/spiral-matrix/" },
+        { "id": "spiral-matrix-ii", "title": "Spiral Matrix II", "difficulty": "Medium", "pattern": "Simulation / Spiral", "link": "https://leetcode.com/problems/spiral-matrix-ii/" },
+        { "id": "set-matrix-zeroes", "title": "Set Matrix Zeroes", "difficulty": "Medium", "pattern": "Simulation / Spiral", "link": "https://leetcode.com/problems/set-matrix-zeroes/" },
+        { "id": "happy-number", "title": "Happy Number", "difficulty": "Easy", "pattern": "Number Theory", "link": "https://leetcode.com/problems/happy-number/" },
+        { "id": "plus-one", "title": "Plus One", "difficulty": "Easy", "pattern": "Simulation / Spiral", "link": "https://leetcode.com/problems/plus-one/" },
+        { "id": "pow-x-n", "title": "Pow(x, n)", "difficulty": "Medium", "pattern": "Number Theory", "link": "https://leetcode.com/problems/powx-n/" },
+        { "id": "multiply-strings", "title": "Multiply Strings", "difficulty": "Medium", "pattern": "Simulation / Spiral", "link": "https://leetcode.com/problems/multiply-strings/" },
+        { "id": "count-primes", "title": "Count Primes", "difficulty": "Medium", "pattern": "Number Theory", "link": "https://leetcode.com/problems/count-primes/" },
+        { "id": "max-points-on-a-line", "title": "Max Points on a Line", "difficulty": "Hard", "pattern": "Geometry", "link": "https://leetcode.com/problems/max-points-on-a-line/" },
+        { "id": "excel-sheet-column-number", "title": "Excel Sheet Column Number", "difficulty": "Easy", "pattern": "Number Theory", "link": "https://leetcode.com/problems/excel-sheet-column-number/" },
+        { "id": "integer-to-roman", "title": "Integer to Roman", "difficulty": "Medium", "pattern": "Simulation / Spiral", "link": "https://leetcode.com/problems/integer-to-roman/" }
+      ]
+    },
+    {
+      "id": "advanced_graphs",
+      "name": "Advanced Graphs",
+      "patterns": ["Minimum Spanning Tree", "Bellman-Ford", "Floyd-Warshall", "Bridges & Articulation Points", "Strongly Connected Components"],
+      "explanation": [
+        "Advanced graph algorithms solve more specialized problems: MST for minimum cost connectivity, Bellman-Ford for graphs with negative weights, Floyd-Warshall for all-pairs shortest paths.",
+        "Bridges and articulation points identify critical edges/nodes whose removal disconnects the graph — solved using DFS timestamps.",
+        "Strongly Connected Components (Tarjan's or Kosaraju's) decompose a directed graph into maximal subgraphs where every node is reachable from every other."
+      ],
+      "problems": [
+        { "id": "min-cost-to-connect-all-points", "title": "Min Cost to Connect All Points (Prim's / Kruskal's)", "difficulty": "Medium", "pattern": "Minimum Spanning Tree", "link": "https://leetcode.com/problems/min-cost-to-connect-all-points/" },
+        { "id": "find-critical-and-pseudo-critical-edges", "title": "Find Critical and Pseudo-Critical Edges in MST", "difficulty": "Hard", "pattern": "Minimum Spanning Tree", "link": "https://leetcode.com/problems/find-critical-and-pseudo-critical-edges-in-minimum-spanning-tree/" },
+        { "id": "cheapest-flights-bellman", "title": "Cheapest Flights Within K Stops (Bellman-Ford)", "difficulty": "Medium", "pattern": "Bellman-Ford", "link": "https://leetcode.com/problems/cheapest-flights-within-k-stops/" },
+        { "id": "network-delay-bellman", "title": "Network Delay Time (Bellman-Ford)", "difficulty": "Medium", "pattern": "Bellman-Ford", "link": "https://leetcode.com/problems/network-delay-time/" },
+        { "id": "find-the-city-with-smallest-number-of-neighbors", "title": "Find the City With the Smallest Number of Neighbors at a Threshold Distance", "difficulty": "Medium", "pattern": "Floyd-Warshall", "link": "https://leetcode.com/problems/find-the-city-with-the-smallest-number-of-neighbors-at-a-threshold-distance/" },
+        { "id": "critical-connections-in-a-network", "title": "Critical Connections in a Network", "difficulty": "Hard", "pattern": "Bridges & Articulation Points", "link": "https://leetcode.com/problems/critical-connections-in-a-network/" },
+        { "id": "number-of-operations-to-make-network-connected", "title": "Number of Operations to Make Network Connected", "difficulty": "Medium", "pattern": "Minimum Spanning Tree", "link": "https://leetcode.com/problems/number-of-operations-to-make-network-connected/" }
+      ]
+    },
+    {
+      "id": "segment_tree_fenwick",
+      "name": "Segment Tree & Fenwick Tree",
+      "patterns": ["Range Sum Query", "Range Min/Max Query", "Point Update", "Range Update"],
+      "explanation": [
+        "Segment Trees support O(log N) range queries (sum, min, max) and O(log N) point updates, handling dynamic arrays that change over time.",
+        "Fenwick Trees (Binary Indexed Trees) are a simpler, more cache-friendly structure for prefix sum queries and point updates in O(log N).",
+        "These structures shine when you need repeated range queries on a mutable array — static arrays use prefix sums instead."
+      ],
+      "problems": [
+        { "id": "range-sum-query-mutable", "title": "Range Sum Query - Mutable", "difficulty": "Medium", "pattern": "Range Sum Query", "link": "https://leetcode.com/problems/range-sum-query-mutable/" },
+        { "id": "count-of-smaller-numbers-after-self-bit", "title": "Count of Smaller Numbers After Self", "difficulty": "Hard", "pattern": "Point Update", "link": "https://leetcode.com/problems/count-of-smaller-numbers-after-self/" },
+        { "id": "create-sorted-array-through-instructions", "title": "Create Sorted Array through Instructions", "difficulty": "Hard", "pattern": "Point Update", "link": "https://leetcode.com/problems/create-sorted-array-through-instructions/" },
+        { "id": "falling-squares", "title": "Falling Squares", "difficulty": "Hard", "pattern": "Range Max Query", "link": "https://leetcode.com/problems/falling-squares/" },
+        { "id": "my-calendar-i", "title": "My Calendar I", "difficulty": "Medium", "pattern": "Range Update", "link": "https://leetcode.com/problems/my-calendar-i/" },
+        { "id": "my-calendar-ii", "title": "My Calendar II", "difficulty": "Medium", "pattern": "Range Update", "link": "https://leetcode.com/problems/my-calendar-ii/" }
+      ]
+    },
+    {
+      "id": "string_algorithms",
+      "name": "String Algorithms",
+      "patterns": ["KMP / Z-Function", "Rabin-Karp (Rolling Hash)", "String Parsing", "Palindrome Techniques", "Anagram / Character Counting"],
+      "explanation": [
+        "String-specific algorithms go beyond simple iteration. KMP and Z-function find patterns in O(N + M) by preprocessing the pattern to skip redundant comparisons.",
+        "Rolling Hash (Rabin-Karp) computes a hash in O(1) for any substring, enabling O(N) average-case pattern matching.",
+        "Manacher's algorithm finds all palindromic substrings in O(N), far better than the O(N^2) expand-around-center approach."
+      ],
+      "problems": [
+        { "id": "find-the-index-of-the-first-occurrence-in-a-string", "title": "Find the Index of the First Occurrence in a String (KMP)", "difficulty": "Easy", "pattern": "KMP / Z-Function", "link": "https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string/" },
+        { "id": "repeated-string-match", "title": "Repeated String Match", "difficulty": "Medium", "pattern": "KMP / Z-Function", "link": "https://leetcode.com/problems/repeated-string-match/" },
+        { "id": "shortest-palindrome", "title": "Shortest Palindrome", "difficulty": "Hard", "pattern": "KMP / Z-Function", "link": "https://leetcode.com/problems/shortest-palindrome/" },
+        { "id": "longest-duplicate-substring", "title": "Longest Duplicate Substring", "difficulty": "Hard", "pattern": "Rabin-Karp (Rolling Hash)", "link": "https://leetcode.com/problems/longest-duplicate-substring/" },
+        { "id": "basic-calculator", "title": "Basic Calculator", "difficulty": "Hard", "pattern": "String Parsing", "link": "https://leetcode.com/problems/basic-calculator/" },
+        { "id": "basic-calculator-ii", "title": "Basic Calculator II", "difficulty": "Medium", "pattern": "String Parsing", "link": "https://leetcode.com/problems/basic-calculator-ii/" },
+        { "id": "roman-to-integer", "title": "Roman to Integer", "difficulty": "Easy", "pattern": "String Parsing", "link": "https://leetcode.com/problems/roman-to-integer/" },
+        { "id": "count-and-say", "title": "Count and Say", "difficulty": "Medium", "pattern": "String Parsing", "link": "https://leetcode.com/problems/count-and-say/" },
+        { "id": "minimum-window-substring-2", "title": "Minimum Window Substring", "difficulty": "Hard", "pattern": "Anagram / Character Counting", "link": "https://leetcode.com/problems/minimum-window-substring/" },
+        { "id": "check-if-two-string-arrays-are-equivalent", "title": "Check If Two String Arrays are Equivalent", "difficulty": "Easy", "pattern": "String Parsing", "link": "https://leetcode.com/problems/check-if-two-string-arrays-are-equivalent/" }
+      ]
+    },
+    {
+      "id": "sorting_algorithms",
+      "name": "Sorting",
+      "patterns": ["Comparison Sorts", "Non-Comparison Sorts", "Sorting to Simplify", "Custom Comparators"],
+      "explanation": [
+        "Understanding sorting algorithms — their time complexity, space complexity, and stability — is fundamental. Merge Sort is O(N log N) stable; Quick Sort is O(N log N) average but O(N^2) worst case in-place.",
+        "Non-comparison sorts like Counting Sort and Radix Sort achieve O(N) by exploiting constraints on the data (e.g., bounded integers).",
+        "Often in interviews, sorting the data first is the key insight that unlocks a greedy or two-pointer solution."
+      ],
+      "problems": [
+        { "id": "sort-an-array", "title": "Sort an Array (Implement Merge/Quick Sort)", "difficulty": "Medium", "pattern": "Comparison Sorts", "link": "https://leetcode.com/problems/sort-an-array/" },
+        { "id": "merge-sort-linked-list", "title": "Sort List (Merge Sort on LL)", "difficulty": "Medium", "pattern": "Comparison Sorts", "link": "https://leetcode.com/problems/sort-list/" },
+        { "id": "kth-largest-element-quickselect", "title": "Kth Largest Element in an Array (QuickSelect)", "difficulty": "Medium", "pattern": "Comparison Sorts", "link": "https://leetcode.com/problems/kth-largest-element-in-an-array/" },
+        { "id": "count-of-range-sum", "title": "Count of Range Sum", "difficulty": "Hard", "pattern": "Comparison Sorts", "link": "https://leetcode.com/problems/count-of-range-sum/" },
+        { "id": "maximum-gap", "title": "Maximum Gap (Radix/Bucket Sort)", "difficulty": "Hard", "pattern": "Non-Comparison Sorts", "link": "https://leetcode.com/problems/maximum-gap/" },
+        { "id": "relative-sort-array", "title": "Relative Sort Array (Counting Sort)", "difficulty": "Easy", "pattern": "Non-Comparison Sorts", "link": "https://leetcode.com/problems/relative-sort-array/" },
+        { "id": "largest-number-custom", "title": "Largest Number (Custom Comparator)", "difficulty": "Medium", "pattern": "Custom Comparators", "link": "https://leetcode.com/problems/largest-number/" },
+        { "id": "wiggle-sort-ii", "title": "Wiggle Sort II", "difficulty": "Medium", "pattern": "Sorting to Simplify", "link": "https://leetcode.com/problems/wiggle-sort-ii/" },
+        { "id": "meeting-rooms-sort", "title": "Meeting Rooms (Sort first)", "difficulty": "Easy", "pattern": "Sorting to Simplify", "link": "https://leetcode.com/problems/meeting-rooms/" }
+      ]
+    }
+  ]
+}

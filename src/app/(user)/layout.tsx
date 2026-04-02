@@ -12,6 +12,7 @@ import {
   NotepadText,
   Ticket,
   Home,
+  Code,
 } from "lucide-react";
 import logo from "../../assets/cleit.png";
 import { getAuth, signOut, onAuthStateChanged, User } from "firebase/auth";
@@ -72,6 +73,7 @@ export default function AdminLayout({
     { icon: BriefcaseBusiness, label: "Jobs", route: "/jobs" },
     { icon: NotepadText, label: "Tests", route: "/tests" },
     { icon: Ticket, label: "Webinar", route: "/webinars" },
+    { icon: Code, label: "DSA Sheet", route: "/dsa" },
     { icon: UserIcon, label: "Account", route: "/account" },
   ];
 
