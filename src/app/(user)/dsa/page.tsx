@@ -219,7 +219,7 @@ export default function DSASheet() {
             </button>
             <button
               onClick={() => setActiveTab("leaderboard")}
-              className={`pb-4 text-lg font-bold border-b-2 transition-all duration-200 flex items-center gap-2 ${
+              className={`pb-4 text-lg font-bold border-b-2 transition-all duration-200 flex items-center gap-2 cursor-pointer ${
                 activeTab === "leaderboard"
                   ? "border-indigo-600 text-indigo-600"
                   : "border-transparent text-slate-500 hover:text-slate-700"
@@ -460,7 +460,7 @@ export default function DSASheet() {
                           let rankBadge = null;
                           if (rank === 1) {
                             rankBadge = (
-                              <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-amber-50 border border-amber-200 text-amber-700 font-extrabold text-sm shadow-sm animate-bounce" style={{ animationDuration: '3s' }} title="Gold Medalist">
+                              <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-amber-50 border border-amber-200 text-amber-700 font-extrabold text-sm shadow-sm" style={{ animationDuration: '3s' }} title="Gold Medalist">
                                 🥇
                               </span>
                             );
