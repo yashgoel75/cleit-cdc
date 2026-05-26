@@ -91,6 +91,7 @@ const user = new Schema({
     status: String,
     isProfileComplete: Boolean,
     dsaProgress: [{ type: String }],
+    participateLeaderboard: { type: Boolean, default: false },
     jobs: [{
         jobId: { type: mongoose.Schema.Types.ObjectId, ref: "Job" },
         appliedAt: { type: Date, default: Date.now }
